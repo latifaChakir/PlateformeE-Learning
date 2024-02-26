@@ -60,27 +60,37 @@
                 </div>
               </div>
               <div class="card-body">
-                <form role="form" class="text-start">
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                        @foreach ($errors->all() as $error)
+                            {{ $error }}
+                        @endforeach
+                </div>
+                @endif
+                <form role="form" class="text-start" method="POST" action="{{ route('auth.login.post') }}">
+                  @csrf 
+              
                   <div class="input-group input-group-outline my-3">
-                    <label class="form-label">Email</label>
-                    <input type="email" class="form-control">
+                      <label class="form-label"></label>
+                      <input type="email" class="form-control" name="email" required placeholder="Email" value="{{ old('email') }}">
                   </div>
                   <div class="input-group input-group-outline mb-3">
-                    <label class="form-label">Password</label>
-                    <input type="password" class="form-control">
+                      <label class="form-label"></label>
+                      <input type="password" class="form-control" name="password" required placeholder="Password" value="{{ old('password') }}">
                   </div>
                   <div class="form-check form-switch d-flex align-items-center mb-3">
-                    <input class="form-check-input" type="checkbox" id="rememberMe">
-                    <label class="form-check-label mb-0 ms-2" for="rememberMe">Remember me</label>
+                      <input class="form-check-input" type="checkbox" id="rememberMe" name="remember">
+                      <label class="form-check-label mb-0 ms-2" for="rememberMe">Remember me</label>
                   </div>
                   <div class="text-center">
-                    <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2">Sign in</button>
+                      <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">Sign in</button>
                   </div>
                   <p class="mt-4 text-sm text-center">
-                    Don't have an account?
-                    <a href="/register" class="text-primary text-gradient font-weight-bold">Sign up</a>
+                      Don't have an account?
+                      <a href="{{ route('auth.register') }}" class="text-primary text-gradient font-weight-bold">Sign up</a>
                   </p>
-                </form>
+              </form>
+              
               </div>
             </div>
           </div>
