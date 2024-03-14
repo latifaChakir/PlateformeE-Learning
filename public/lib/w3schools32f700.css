@@ -38,7 +38,7 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .w3-table th:first-child,.w3-table td:first-child,.w3-table-all th:first-child,.w3-table-all td:first-child{padding-left:16px}
 .w3-btn,.w3-button{border:none;display:inline-block;padding:8px 16px;vertical-align:middle;overflow:hidden;text-decoration:none;color:inherit;background-color:inherit;text-align:center;cursor:pointer;white-space:nowrap}
 .w3-btn:hover{box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)}
-.w3-btn,.w3-button{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}   
+.w3-btn,.w3-button{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
 .w3-disabled,.w3-btn:disabled,.w3-button:disabled{cursor:not-allowed;opacity:0.3}.w3-disabled *,:disabled *{pointer-events:none}
 .w3-btn.w3-disabled:hover,.w3-btn:disabled:hover{box-shadow:none}
 .w3-badge,.w3-tag{background-color:#000;color:#fff;display:inline-block;padding-left:8px;padding-right:8px;text-align:center}.w3-badge{border-radius:50%}
@@ -85,7 +85,7 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .w3-hide{display:none!important}.w3-show-block,.w3-show{display:block!important}.w3-show-inline-block{display:inline-block!important}
 @media (max-width:1205px){.w3-auto{max-width:95%}}
 @media (max-width:600px){.w3-modal-content{margin:0 10px;width:auto!important}.w3-modal{padding-top:30px}
-.w3-dropdown-hover.w3-mobile .w3-dropdown-content,.w3-dropdown-click.w3-mobile .w3-dropdown-content{position:relative}	
+.w3-dropdown-hover.w3-mobile .w3-dropdown-content,.w3-dropdown-click.w3-mobile .w3-dropdown-content{position:relative}
 .w3-hide-small{display:none!important}.w3-mobile{display:block;width:100%!important}.w3-bar-item.w3-mobile,.w3-dropdown-hover.w3-mobile,.w3-dropdown-click.w3-mobile{text-align:center}
 .w3-dropdown-hover.w3-mobile,.w3-dropdown-hover.w3-mobile .w3-btn,.w3-dropdown-hover.w3-mobile .w3-button,.w3-dropdown-click.w3-mobile,.w3-dropdown-click.w3-mobile .w3-btn,.w3-dropdown-click.w3-mobile .w3-button{width:100%}}
 @media (max-width:768px){.w3-modal-content{width:500px}.w3-modal{padding-top:50px}}
@@ -364,7 +364,7 @@ width:204px;
 #leftmenuinner {
 position:fixed;
 top:0;
-padding-bottom:0;    
+padding-bottom:0;
 height:100%;
 width:220px;
 background-color:transparent;
@@ -378,7 +378,7 @@ overflow-x:hidden;
 padding-top:20px;
 }
 #main {padding:16px;margin-top:90px;}
-#mainLeaderboard {height:90px}
+#mainLeaderboard {height:40px}
 #right {text-align:center;padding:16px 16px 0 0;margin-top:90px;}
 #right a {text-decoration:none}
 /*#right a:hover {text-decoration:underline}*/
@@ -787,7 +787,7 @@ a.btnsmall:active,a.btnsmall:hover {color:#4CAF50;background-color:#ffffff}
 .csspropertycolor{color:red}
 .csspropertyvaluecolor{color:mediumblue}
 .cssdelimitercolor{color:black}
-.cssimportantcolor{color:red}  
+.cssimportantcolor{color:red}
 .jscolor{color:black}
 .jskeywordcolor{color:mediumblue}
 .jsstringcolor{color:brown}
@@ -808,16 +808,16 @@ a.btnsmall:active,a.btnsmall:hover {color:#4CAF50;background-color:#ffffff}
 .phpkeywordcolor{color:mediumblue}
 .phpglobalcolor{color:goldenrod}
 .phpstringcolor{color:brown}
-.phpnumbercolor{color:red}  
+.phpnumbercolor{color:red}
 .pythoncolor{color:black}
 .pythonkeywordcolor{color:mediumblue}
 .pythonstringcolor{color:brown}
-.pythonnumbercolor{color:red}  
+.pythonnumbercolor{color:red}
 .angularstatementcolor{color:red}
 .sqlcolor{color:black}
 .sqlkeywordcolor{color:mediumblue}
 .sqlstringcolor{color:brown}
-.sqlnumbercolor{color:red} 
+.sqlnumbercolor{color:red}
 .darktheme .w3-code{background-color:rgb(40,44,52);color:white;border-left-color:rgb(40,44,52)}
 .darktheme .w3-codeline{background-color:#000;color:white;border-left-color:#000}
 .darktheme .w3-example pre{background-color:rgb(40,44,52)!important;border-left-color:rgb(40,44,52)}
@@ -1001,7 +1001,7 @@ table.gstl_50 {/*google search suggestions*/
   border-left: none;
   padding:32px;
   margin:24px;
-  margin-left:-32px;
+  margin-left:20px;
   margin-right:-32px;
 }
 .w3-info .w3-btn {
@@ -1394,60 +1394,60 @@ padding-top:87px;
 .ws-grey {
   background-color:#E7E9EB!important;
   color: black!important;
-} 
+}
 
 .ws-yellow {
   background-color:#7DD3FC !important;
   color: white!important;
-} 
+}
 
 .ws-hover-yellow:hover {
   background-color:#fff080!important;
-  color: black!important;  
-} 
+  color: black!important;
+}
 
 .ws-green {
   background-color:#04AA6D!important;
   color: white!important;
-} 
+}
 
 .ws-text-green {
   color: #04AA6D!important;
-} 
+}
 
 .ws-hover-green:hover {
   background-color:#059862!important;
   color: white!important;
-} 
+}
 
 .ws-hover-text-green:hover {
   color:#059862!important;
-} 
+}
 
 .ws-light-green {
   background-color:#D9EEE1!important;
   color: black!important;
-} 
+}
 
 .ws-turquoise {
   background-color:#96D4D4!important;
   color: black!important;
-} 
+}
 
 .ws-pink {
   background-color:#38BDF8!important;
   color: white!important;
-} 
+}
 
 .ws-hover-pink:hover {
   background-color:#ffb3bb!important;
-  color: black!important;  
-} 
+  color: black!important;
+}
 
 .ws-light-pink {
   background-color:#F3ECEA!important;
   color: black!important;
-} 
+}
 
 .ws-purple {
   background-color:#9763f6!important;

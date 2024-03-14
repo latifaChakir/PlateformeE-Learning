@@ -32,7 +32,7 @@
                   </thead>
                   <tbody>
                     @foreach ($courses as $course)
-                      
+
                     <tr>
                       <td>
                         <div class="d-flex px-2 py-1">
@@ -44,20 +44,20 @@
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div class="d-flex flex-column justify-content-center">
-                            <p class="text-sm text-secondary mb-0">{{ $course->description }}</p>                            
+                            <p class="text-sm text-secondary mb-0"> {!! Str::limit($course->description, 70, '...') !!}</p>
                           </div>
                         </div>
                       </td>
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div class="d-flex flex-column justify-content-center">
-                            <p class="text-sm text-secondary mb-0">{{ $course->created_at }}</p>                            
+                            <p class="text-sm text-secondary mb-0">{{ $course->created_at }}</p>
                           </div>
                         </div>
                       </td>
                       <td class="align-middle">
                         <div class="buttons">
-                        <a class="btn btn-primary" href="{{route('course.edit',$course->id)}}">Edit</a>  
+                        <a class="btn btn-primary" href="{{route('course.edit',$course->id)}}">Edit</a>
                         <form action="{{route('course.destroy',$course->id)}}" method="post">
                             @csrf
                             @method('DELETE')
@@ -90,7 +90,7 @@
                         <div class="form-group">
                           <input type="text" class="form-control" name="description" placeholder="Description">
                         </div>
-    
+
                         <div class="buttons justify-content-end">
                             <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
                             <input type="submit" class="btn btn-default" value="Save">

@@ -68,8 +68,8 @@
                 </div>
                 @endif
                 <form role="form" class="text-start" method="POST" action="{{ route('auth.login.post') }}">
-                  @csrf 
-              
+                  @csrf
+
                   <div class="input-group input-group-outline my-3">
                       <label class="form-label"></label>
                       <input type="email" class="form-control" name="email" required placeholder="Email" value="{{ old('email') }}">
@@ -90,7 +90,7 @@
                       <a href="{{ route('auth.register') }}" class="text-primary text-gradient font-weight-bold">Sign up</a>
                   </p>
               </form>
-              
+
               </div>
             </div>
           </div>

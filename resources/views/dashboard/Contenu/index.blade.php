@@ -27,13 +27,13 @@
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Course Name</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Chapiter Name</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Title </th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Content</th>
+                      {{-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Content</th> --}}
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Actions</th>
                     </tr>
                   </thead>
                   <tbody>
                     @foreach ($contents as $contenu)
-                      
+
                     <tr>
                       <td>
                         <div class="d-flex px-2 py-1">
@@ -42,7 +42,7 @@
                           </div>
                         </div>
                       </td>
-                      
+
                         <td>
                             <div class="d-flex px-2 py-1">
                               <div class="d-flex flex-column justify-content-center">
@@ -53,24 +53,24 @@
                           <td>
                             <div class="d-flex px-2 py-1">
                               <div class="d-flex flex-column justify-content-center">
-                                <p class="text-sm text-secondary mb-0">{{$contenu->title}}</p>                            
+                                <p class="text-sm text-secondary mb-0">{{$contenu->title}}</p>
                               </div>
                             </div>
                           </td>
-                        <td>
+                        {{-- <td>
                             <div class="d-flex px-2 py-1">
                             <div class="d-flex flex-column justify-content-center">
                                 <p class="text-sm text-secondary mb-0 truncated-content" data-full-content="{{ $contenu->content }}">
                                     {!! Str::limit($contenu->content, 30, '...') !!}
                                 </p>
-                                                           
+
                             </div>
                             </div>
-                        </td>
-                      
+                        </td> --}}
+
                       <td class="align-middle">
                         <div class="buttons">
-                        <a class="btn btn-primary" href="{{route('contentCourse.edit',$contenu->id)}}">Edit</a>  
+                        <a class="btn bg-grade-primary" href="{{route('contentCourse.edit',$contenu->id)}}">Edit</a>
                         <form action="{{route('contentCourse.destroy',$contenu->id)}}" method="post">
                             @csrf
                             @method('DELETE')
@@ -102,17 +102,17 @@
                                 @foreach($courses as $course)
                                     <option value="{{ $course->id }}">{{ $course->title }}</option>
                                 @endforeach
-                            </select>                        
+                            </select>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" name="chapter_name" placeholder="Chapter Name">
                         </div>
-                        
+
                         <div class="form-group">
                             <input type="text" class="form-control" name="title" placeholder="Title">
                         </div>
                         <div class="form-group">
-                            <textarea id="summernote" name="content" style="margin-top: 50px !important;"></textarea> 
+                            <textarea id="summernote" name="content" style="margin-top: 50px !important;"></textarea>
                         </div>
 
                         <div class="buttons justify-content-end">

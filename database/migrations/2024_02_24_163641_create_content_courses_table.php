@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('content_courses', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('chapiter_id');
+            $table->unsignedBigInteger('chapter_id');
             $table->string('title');
             $table->text('content');
-            $table->string('image_path')->nullable(); 
+            $table->string('image_path')->nullable();
             $table->string('video_path')->nullable();
             $table->foreign('chapiter_id')->references('id')->on('chapters')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
