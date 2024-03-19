@@ -11,7 +11,7 @@
     <meta name="Description"
         content="Well organized and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS, JavaScript, SQL, Python, PHP, Bootstrap, Java, XML and more.">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="/lib/topnav/main5ab0.css?v=1.0.30">
@@ -25,7 +25,7 @@
 
     <div id="top-nav-bar" class="classic">
         <div id="pagetop" class="w3-bar notranslate w3-white">
-            <a id="w3-logo" href="index.html" class="w3-bar-item w3-button w3-hover-none w3-left ga-top ga-top-w3home"
+            <a id="w3-logo" href="/" class="w3-bar-item w3-button w3-hover-none w3-left ga-top ga-top-w3home"
                 title="Home" style="width: 75px" aria-label="Home link">
                 <img src="/images/logo.png" style="position: relative; z-index: 1; width: 50px !important"
                     aria-hidden="true">

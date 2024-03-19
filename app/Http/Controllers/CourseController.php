@@ -85,6 +85,6 @@ class CourseController extends Controller
         $course = Course::find($id);
         $course->delete();
         return redirect('/course')->with('success', 'course deleted successfully');
-    
+
     }
 }

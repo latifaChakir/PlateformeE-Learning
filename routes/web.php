@@ -6,6 +6,7 @@ use App\Http\Controllers\ChapterController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DashController;
+use App\Http\Controllers\ExerciceController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +26,7 @@ use Illuminate\Support\Facades\Route;
     Route::get('/', [AccueilController::class, 'index']);
     Route::get('/content/{idcours}/{chapterid}', [ChapterController::class, 'index']);
     Route::get('/courses/{id}', [HomeController::class, 'index']);
+    Route::resource('exercice', ExerciceController::class);
     Route::resource('course', CourseController::class);
     Route::resource('contentCourse', ContentController::class);
     Route::get('/dashboard', [DashController::class, 'index']);
@@ -33,4 +35,6 @@ use Illuminate\Support\Facades\Route;
     Route::get('/login', [AuthController::class, 'login'])->name('auth.login');
     Route::post('/login', [AuthController::class, 'authenticate'])->name('auth.login.post');
     Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
+
+    Route::get('/chapters', [ChapterController::class, 'chapter']);
 

@@ -17,4 +17,9 @@ class Chapter extends Model
     {
         return $this->hasMany(ContentCourse::class);
     }
+
+    public function questions()
+    {
+        return $this->hasMany(Questions::class);
+    }
 }

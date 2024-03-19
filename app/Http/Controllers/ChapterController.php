@@ -21,4 +21,11 @@ class ChapterController extends Controller
 
         return view('courses.chapter', compact('courseContent','chapters','courses','course'));
     }
+
+    public function chapter(Request $request){
+        $course = $request->input('course_id');
+        $chapters = Chapter::where('course_id', $course)->get();
+        return response()->json($chapters);
+    }
+
 }
