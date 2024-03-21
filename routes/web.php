@@ -8,6 +8,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DashController;
 use App\Http\Controllers\ExerciceController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\QuestionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +27,10 @@ use Illuminate\Support\Facades\Route;
     Route::get('/', [AccueilController::class, 'index']);
     Route::get('/content/{idcours}/{chapterid}', [ChapterController::class, 'index']);
     Route::get('/courses/{id}', [HomeController::class, 'index']);
+    Route::get('/startExo/{id}', [QuestionController::class, 'startExo']);
+    Route::get('/contentexo/{id}', [QuestionController::class, 'contentExo']);
+
+    Route::get('/showExercices', [QuestionController::class, 'showExercices']);
     Route::resource('exercice', ExerciceController::class);
     Route::resource('course', CourseController::class);
     Route::resource('contentCourse', ContentController::class);

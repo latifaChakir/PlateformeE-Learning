@@ -11,7 +11,7 @@
     <meta name="Description"
         content="Well organized and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS, JavaScript, SQL, Python, PHP, Bootstrap, Java, XML and more.">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="/lib/topnav/main5ab0.css?v=1.0.30">
@@ -40,8 +40,8 @@
                     <i class="fa fa-caret-up" style="display: none; font-size: 15px" aria-hidden="true"></i>
                 </a>
 
-                <a class="tnb-nav-btn w3-bar-item w3-button barex bar-item-hover w3-padding-16 ga-top ga-top-exc-and-quz"
-                    href="javascript:void(0)" onclick="TopNavBar.openNavItem('exercises')" id="navbtn_exercises"
+                <a class="tnb-nav-btn w3-bar-item w3-button barex bar-item-hover w3-padding-16 ga-top ga-top-exc-and-quz "
+                    href="/showExercices" id="navbtn_exercises"
                     title="Exercises and Quizzes" role="button">
                     Exercises
                     <i class="fa fa-caret-down" style="font-size: 15px" aria-hidden="true"></i>

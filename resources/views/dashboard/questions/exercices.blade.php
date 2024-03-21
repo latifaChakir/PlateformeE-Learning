@@ -119,6 +119,10 @@
                                 </select>
                             </div>
                             <div class="form-group">
+                                <label for="question">Title :</label>
+                                <input  name="title"  class="form-control custom-select"></input>
+                            </div>
+                            <div class="form-group">
                                 <label for="question">Question :</label>
                                 <textarea id="summernote" name="question" id="question" class="form-control custom-select"></textarea>
                             </div>

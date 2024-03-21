@@ -356,7 +356,7 @@ padding-left:16px;
 margin:-4px 0 4px 0;
 width:204px;
 }
-#sidenav a {font-family:"Segoe UI",Arial,sans-serif;text-decoration:none;display:block;padding:2px 1px 1px 16px}
+#sidenav a {font-family:"Segoe UI",Arial,sans-serif;text-decoration:none;display:block;padding:2px 1px 1px 50px; font-weight: 500;}
 #sidenav a:hover,#sidenav a:focus {color:#000000;background-color:#cccccc;}
 #sidenav a.active {background-color:#075985!important;color:#ffffff!important;}
 #sidenav a.activesub:link,#sidenav a.activesub:visited {background-color:#ddd;color:#000;}
@@ -1473,11 +1473,11 @@ a.btnplayit:hover {box-shadow:none;}
   padding: 20px;
   margin:32px -20px;
 }
-p {
+/* p {
   margin-top: 1.2em;
   margin-bottom: 1.2em;
   font-size: 15px;
-}
+} */
 hr {
   margin:20px -16px;
 }
