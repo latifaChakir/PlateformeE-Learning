@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->float('price')->nullable();
             $table->text('description');
+            $table->string('image_path');
             $table->timestamps();
         });
     }

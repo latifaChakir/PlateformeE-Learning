@@ -10,10 +10,43 @@
         content="HTML, Python, CSS, SQL, JavaScript, How to, PHP, Java, C, C++, C#, jQuery, Bootstrap, Colors, W3.CSS, XML, MySQL, Icons, NodeJS, React, Graphics, Angular, R, AI, Git, Data Science, Code Game, Tutorials, Programming, Web Development, Training, Learning, Quiz, Exercises, Courses, Lessons, References, Examples, Learn to code, Source code, Demos, Tips, Website">
     <meta name="Description"
         content="Well organized and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS, JavaScript, SQL, Python, PHP, Bootstrap, Java, XML and more.">
+
+        <link href="/asset/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Themefisher Font -->
+        <link href="/asset/plugins/themefisher-font/style.css" rel="stylesheet">
+        <!-- Font Awesome -->
+        <link href="/asset/plugins/font-awsome/css/font-awesome.min.css" rel="stylesheet">
+        <!-- Magnific Popup -->
+        <link href="/asset/plugins/magnific-popup/magnific-popup.css" rel="stylesheet">
+        <!-- Slick Carousel -->
+        <link href="/asset/plugins/slick/slick.css" rel="stylesheet">
+        <link href="/asset/plugins/slick/slick-theme.css" rel="stylesheet">
+        <!-- CUSTOM CSS -->
+        <link href="/asset/css/style.css" rel="stylesheet">
+
+        <!-- FAVICON -->
+        <link href="/asset/images/favicon.png" rel="shortcut icon">
+
+        <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/%C3%87art_app_beyaz_%282%29.png/600px-%C3%87art_app_beyaz_%282%29.png" type="image/x-icon" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="/lib/topnav/main5ab0.css?v=1.0.30">
     <link rel="stylesheet" href="/lib/w3schools32f700.css?v=1.0.1">
     <link rel="stylesheet" href="/lib/style.css">
@@ -21,6 +54,7 @@
 </head>
 
 <body>
+
     <div id="tnb-search-suggestions"></div>
 
     <div id="top-nav-bar" class="classic">
@@ -41,15 +75,14 @@
                 </a>
 
                 <a class="tnb-nav-btn w3-bar-item w3-button barex bar-item-hover w3-padding-16 ga-top ga-top-exc-and-quz "
-                    href="/showExercices" id="navbtn_exercises"
-                    title="Exercises and Quizzes" role="button">
+                    href="/showExercices" id="navbtn_exercises" title="Exercises and Quizzes" role="button">
                     Exercises
                     <i class="fa fa-caret-down" style="font-size: 15px" aria-hidden="true"></i>
                     <i class="fa fa-caret-up" style="display: none; font-size: 15px" aria-hidden="true"></i>
                 </a>
 
                 <a class="tnb-nav-btn w3-bar-item w3-button barex bar-item-hover w3-padding-16 tnb-paid-service ga-top ga-top-cert-and-course"
-                    href="javascript:void(0)" onclick="TopNavBar.openNavItem('certified')" id="navbtn_certified"
+                    href="/certificat" onclick="TopNavBar.openNavItem('certified')" id="navbtn_certified"
                     title="Certificates" role="button">
                     Certificates
                     <i class="fa fa-caret-down" style="font-size: 15px" aria-hidden="true"></i>
@@ -314,7 +347,8 @@
             </span>
         </div>
         @foreach ($courses as $course)
-            <a href="/courses/{{ $course->id }}" class="ga-nav subtopnav_firstitem" title="HTML Tutorial">{{ $course->title }}</a>
+            <a href="/courses/{{ $course->id }}" class="ga-nav subtopnav_firstitem"
+                title="HTML Tutorial">{{ $course->title }}</a>
         @endforeach
 
         <a href="javascript:void(0)" style="width:50px;visibility:hidden;"></a>
@@ -327,6 +361,49 @@
     </div>
 
     @yield('content')
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js'></script>
+    <script  src="script.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const exerciseTitles = document.querySelectorAll('.exercise-title');
+            const resultsContainer = document.getElementById('results');
+
+            const firstExerciseId = exerciseTitles[0].getAttribute('data-exercise-id');
+            fetchResults(firstExerciseId);
+
+            exerciseTitles.forEach(function(exerciseTitle) {
+                exerciseTitle.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    var exerciseId = this.getAttribute('data-exercise-id');
+                    fetchResults(exerciseId);
+                });
+            });
+
+            function fetchResults(exerciseId) {
+                fetch(`/contentexo/${exerciseId}`)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Erreur lors de la récupération des résultats.');
+                        }
+                        return response.text();
+                    })
+                    .then(data => {
+                        resultsContainer.innerHTML = data;
+                    })
+                    .catch(error => {
+                        console.error('Erreur lors de la récupération des résultats:', error);
+                        resultsContainer.innerHTML = 'Erreur lors de la récupération des résultats.';
+                    });
+            }
+        });
+    </script>
+
+
 
 
 </body>

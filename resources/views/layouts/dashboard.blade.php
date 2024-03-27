@@ -62,6 +62,15 @@
                         <span class="nav-link-text ms-1">contacts</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark {{ Request::is('/categories') ? 'active bg-gradient-primary' : '' }}"
+                        href="{{ route('categories.index') }}">
+                        <div class="text-dark text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class='fa fa-newspaper-o material-icons'></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Categories</span>
+                    </a>
+                </li>
 
                 <li class="nav-item">
                     <a class="nav-link text-dark {{ Request::is('/course') ? 'active bg-gradient-primary' : '' }}"

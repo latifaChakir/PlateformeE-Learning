@@ -22,9 +22,8 @@
                 <div id='mainLeaderboard' style='overflow:hidden;'>
                     <div id="adngin-main_leaderboard-0"></div>
                 </div>
-
                 <h1>{{ $course->title }}<span class="color_h1"> Tutorial</span></h1>
-                <div class="w3-panel w3-info intro">
+                <div class="w3-panel w3-info intro" style="background-color: #bdcbd3 !important;">
                    {{ $course->description }}
                 </div>
                 <hr>

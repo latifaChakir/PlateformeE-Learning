@@ -31,11 +31,19 @@ class CourseController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required',
+            'image_path' => 'required|image|mimes:jpeg,png,jpg,svg,gif|max:2048',
+            'price'
         ]);
+        $uploadDir = 'images/';
+        $uploadFileName = uniqid() . '.' . $request->file('image_path')->getClientOriginalExtension();
+        $request->file('image_path')->move($uploadDir, $uploadFileName);
+
 
         $course = new Course();
         $course->title = $request->title;
+        $course->price = $request->price;
         $course->description = $request->description;
+        $course->image_path = $uploadFileName;
 
         $course->save();
 
@@ -67,11 +75,21 @@ class CourseController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required',
+            'price'=>'required',
+            'image_path' => 'image|mimes:jpeg,png,jpg,svg,gif|max:2048',
         ]);
 
         $course = Course::find($id);
         $course->title = $request->title;
         $course->description = $request->description;
+        $course->price = $request->price;
+        if($request->hasfile('image_path')){
+            $uploadFileName = uniqid() . '.' . $request->file('image_path')->getClientOriginalExtension();
+            $uploadDir = 'images/';
+            $request->file('image_path')->move($uploadDir, $uploadFileName);
+            $course->image_path = $uploadFileName;
+
+        }
         $course->update();
 
         return redirect('/course')->with('success', 'course updated successfully');

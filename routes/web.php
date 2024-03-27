@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AccueilController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CertificatController;
 use App\Http\Controllers\ChapterController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\CourseController;
@@ -29,11 +31,17 @@ use Illuminate\Support\Facades\Route;
     Route::get('/courses/{id}', [HomeController::class, 'index']);
     Route::get('/startExo/{id}', [QuestionController::class, 'startExo']);
     Route::get('/contentexo/{id}', [QuestionController::class, 'contentExo']);
+    Route::get('/showanswer/{id}', [QuestionController::class, 'showAnswer']);
 
+    Route::post('/submitAnswer', [QuestionController::class, 'submitAnswer']);
     Route::get('/showExercices', [QuestionController::class, 'showExercices']);
     Route::resource('exercice', ExerciceController::class);
     Route::resource('course', CourseController::class);
     Route::resource('contentCourse', ContentController::class);
+    Route::resource('categories', CategoryController::class);
+    Route::get('/certificat', [CertificatController::class, 'index']);
+    Route::get('/certificat/{id}', [CertificatController::class, 'getCertificat']);
+    Route::get('/checkout/{id}', [CertificatController::class , 'checkout']);
     Route::get('/dashboard', [DashController::class, 'index']);
     Route::get('/register', [AuthController::class, 'register'])->name('auth.register');
     Route::post('/register', [AuthController::class, 'create'])->name('auth.register.post');

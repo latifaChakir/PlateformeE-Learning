@@ -888,7 +888,7 @@ body.darkpagetheme .w3-pale-red {background-color: #FFC0C7!important;color:#000;
 body.darkpagetheme .w3-warning .w3-codespan,body.darkpagetheme .w3-note .w3-codespan,body.darkpagetheme .w3-pale-red .w3-codespan {color:crimson;}
 body.darkpagetheme .w3-example {background-color: #38444d;}
 .darktheme .w3-code {background-color: rgb(21,32,43);}
-body.darkpagetheme .w3-info {background-color:#193d3d/*rgb(21,32,43)*/;}
+body.darkpagetheme .w3-info {background-color:#B0C4D1 /*rgb(21,32,43)*/;}
 body.darkpagetheme #w3-exerciseform {background-color: #38444d;color: #ddd;}
 body.darkpagetheme #w3-exerciseform .exercisewindow {background-color: rgb(21,32,43);color: #ddd;}
 body.darkpagetheme #w3-exerciseform .exercisewindow pre {background-color: #38444d;color: #ddd;}
@@ -962,7 +962,7 @@ body.darkpagetheme #footerwrapper {background-image: url(https://www.w3schools.c
 @media (max-width:320px)  {#topnav .w3-bar:nth-of-type(1) a:nth-of-type(3){display:none;}}
 .w3-note{background-color:#ffffcc;border-left:6px solid #ffeb3b}
 .w3-warning{background-color:#ffdddd;border-left:6px solid #f44336}
-.w3-info{background-color:#04AA6D;border-left:6px solid #4CAF50}
+.w3-info{background-color:#B0C4D1;border-left:6px solid #B0C4D1}
 hr[id^="ez-insert-after-placeholder"] {margin-top: 0;}
 .phonebr {display:none;}
 @media screen and (max-width: 475px) {.phonebr {display:initial;}}
@@ -997,7 +997,7 @@ table.gstl_50 {/*google search suggestions*/
   display:none;
 }
 .w3-info {
-  background-color:#D9EEE1;
+  background-color:#D9EEE1 !important;
   border-left: none;
   padding:32px;
   margin:24px;
@@ -1005,7 +1005,7 @@ table.gstl_50 {/*google search suggestions*/
   margin-right:-32px;
 }
 .w3-info .w3-btn {
-  background-color:#04AA6D;
+  background-color:#B0C4D1;
   border-radius: 5px;
 }
 .w3-example {

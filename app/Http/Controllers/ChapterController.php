@@ -15,7 +15,7 @@ class ChapterController extends Controller
         $chapters = $course->chapters()->get();
         $chapter = Chapter::findOrFail($chapterid);
         $courseContent = $chapter->contents()->get();
-        $courses=Course::all();
+        $courses=Course::where('price', 0)->get();
 
         // dd($courseContent);
 

@@ -21,7 +21,7 @@ class ContentController extends Controller
         FROM content_courses
         JOIN chapters ON content_courses.chapter_id = chapters.id
         JOIN courses ON chapters.course_id = courses.id');
-        $courses = Course::all();
+        $courses=Course::where('price', 0)->get();
         return view("dashboard.Contenu.index", compact("contents","courses"));
     }
 

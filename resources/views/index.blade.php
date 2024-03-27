@@ -1,139 +1,241 @@
 @extends('layouts.app')
 
 @section('content')
+    {{-- <div id="app"></div> --}}
+    <header>
 
+    </header>
     <div class='w3-main w3-light-grey' id='belowtopnav'>
 
         <div class='w3-row w3-white'>
 
-            <div class='w3-col l12 m12' id='main'>
-
-                <div class="ws-black w3-center herosection">
-                    <div class="w3-content learntocodecontent" style="xmax-width:1400px">
-                        <h1 class="learntocodeh1">From Zero to Code Hero</h1>
-                        <h3 class="learntocodeh3">
-                            <i class="fa fa-logo w3-hide"
-                                style="color:#FFC0C7!important;margin-right:20px;z-index:1;font-size:36px!important;vertical-align:bottom"></i>
-                            A Step-by-Step Guide to Learning Programming
-                        </h3>
-                        <br>
-                        <form class="example" action="https://www.w3schools.com/action_page.php"
-                            style="margin:auto;max-width:350px">
-                            <input type="text" placeholder="Search our tutorials ..." id="search2" class="ga-fp"
-                                autocomplete="off" onkeydown="key_pressed_in_search(event)"
-                                oninput="find_search_results(this)" onfocus="find_search_results(this)">
-                            <button type="button" id="learntocode_searchbtn" onclick="click_learntocode_search_btn()"><i
-                                    id="learntocode_searchicon" class="fa fa-search ga-fp"></i></button>
-                            <div id="listofsearchresults">
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="w3-row w3-padding-32 " style="margin-top:-10px;">
-                    <h2 class="w3-center">Get Started with These Free Courses</h2>
+            <div class='w3-col l12 m12'>
+                <div class="back w3-center herosection" id="app">
 
                 </div>
 
-                <div class="w3-row w3-padding-32 ws-black">
-                    <div class="w3-content" style="xmax-width:1400px">
-                        <div class="w3-col l6 w3-center" style="padding:3%">
-                            <h1 style="font-size:70px;font-weight:700;margin-bottom:18px!important">JavaScript</h1>
-                            <p style="font-size:19px">The language for programming web pages</p>
-                            <a href="js/default.html" class="w3-button ga-fp w3-block tut-button">Learn
-                                JavaScript</a><br>
-                            <a href="jsref/default.html" class="w3-button ga-fp w3-block ref-button">JavaScript
-                                Reference</a><br>
-                            <a href="https://shop.w3schools.com/collections/certifications/products/javascript-certificate"
-                                target="_blank" class="w3-button ga-fp w3-block ws-pink ref-button ws-pink-hover"
-                                title="Add JavaScript Certification">Get Certified</a><br>
-                        </div>
-                        <div class="w3-col l6" style="padding:3%">
-                            <div class="w3-hide-small w3-card-2 grey-color w3-round" style="padding:16px;">
-                                <h3>JavaScript Example:</h3>
-                                <div class="w3-code notranslate green-border">
-                                    <div class="htmlHigh">
-                                        &lt;button onclick=&quot;myFunction()&quot;&gt;Click Me!&lt;/button&gt;<br><br>
-                                        &lt;script&gt;<br>
-                                        function myFunction() {<br>
-                                        &nbsp; let x = document.getElementById(&quot;demo&quot;);<br>
-                                        &nbsp; x.style.fontSize = &quot;25px&quot;; <br>
-                                        &nbsp; x.style.color = &quot;red&quot;; <br>}<br>
-                                        &lt;/script&gt;
+                {{-- <div id="app"></div> --}}
+                <!-- Service Start -->
+
+
+                <div class="container-xxl py-5 mt-5">
+                    <div class="container">
+                        <div class="row g-4">
+                            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                                <div class="service-item text-center pt-3">
+                                    <div class="p-4">
+                                        <i class="fa fa-3x fa-graduation-cap text-primary mb-4"
+                                            style="font-size: 3rem !important"></i>
+                                        <h5 class="mb-3">Skilled Instructors</h5>
+                                        <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
                                     </div>
                                 </div>
-                                <a href="js/tryit8004.html?filename=tryjs_default" target="_blank"
-                                    class="w3-button ga-fp tryit-button">Try it Yourself</a>
+                            </div>
+                            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                                <div class="service-item text-center pt-3">
+                                    <div class="p-4">
+                                        <i class="fa fa-3x fa-globe text-primary mb-4"
+                                            style="font-size: 3rem !important"></i>
+                                        <h5 class="mb-3">Online Classes</h5>
+                                        <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <div class="service-item text-center pt-3">
+                                    <div class="p-4">
+                                        <i class="fa fa-3x fa-home text-primary mb-4"
+                                            style="font-size: 3rem !important"></i>
+                                        <h5 class="mb-3">Home Projects</h5>
+                                        <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                                <div class="service-item text-center pt-3">
+                                    <div class="p-4">
+                                        <i class="fa fa-3x fa-book-open text-primary mb-4"
+                                            style="font-size: 3rem !important"></i>
+                                        <h5 class="mb-3">Book Library</h5>
+                                        <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- Service End -->
 
-                <div class="w3-row w3-padding-32 ws-light-pink">
-                    <div class="w3-content" style="xmax-width:1400px">
-                        <div class="w3-col l6 w3-center" style="padding:3%">
-                            <h1 style="font-weight:700">Python</h1>
-                            <p style="font-size:19px">A popular programming language</p>
-                            <a href="python/default.html" class="w3-button ga-fp w3-block tut-button">Learn
-                                Python</a><br>
-                            <a href="python/python_reference.html" class="w3-button ga-fp ref-button black-color">Python
-                                Reference</a><br>
-                            <a href="https://shop.w3schools.com/collections/certifications/products/python-certificate"
-                                target="_blank" class="w3-button ga-fp w3-block ws-pink ref-button ws-pink-hover"
-                                title="Add Python Certification">Get Certified</a><br>
-                        </div>
-                        <div class="w3-col l6" style="padding:3%">
-                            <div class="w3-hide-small w3-card-2 grey-color w3-round" style="padding:16px;">
-                                <h3>Python Example:</h3>
-                                <div class="w3-code jsHigh notranslate green-border" style="height:210px">
-                                    if 5 &gt; 2:<br>&nbsp; print("Five is greater than two!")
+
+                <!-- About Start -->
+                <div class="container-xxl py-5">
+                    <div class="container">
+                        <div class="row g-5">
+                            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+                                <div class="position-relative h-100">
+                                    <img class="img-fluid position-absolute w-100 h-100" src="img/about.jpg" alt=""
+                                        style="object-fit: cover;">
                                 </div>
-                                <a href="python/trypythone165.html?filename=demo_indentation" target="_blank"
-                                    class="w3-button ga-fp tryit-button">Try it Yourself</a>
+                            </div>
+                            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                                <h6 class="section-title bg-white text-start text-primary pe-3">About Us</h6>
+                                <h1 class="mb-4">Welcome to UniCode</h1>
+                                <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam
+                                    amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                                <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam
+                                    amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo
+                                    magna dolore erat amet</p>
+                                <div class="row gy-2 gx-4 mb-4">
+                                    <div class="col-sm-6">
+                                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Skilled
+                                            Instructors</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Online Classes
+                                        </p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>International
+                                            Certificate</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Skilled
+                                            Instructors</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Online Classes
+                                        </p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>International
+                                            Certificate</p>
+                                    </div>
+                                </div>
+                                <a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- About End -->
 
 
-
-                <div class="w3-row w3-padding-64 ws-black">
-                    <div style="max-width:1400px;margin:auto">
-                        <div class="w3-col l6 w3-center" style="padding:2% 3%;">
-                            <div class="w3-card-2 w3-round" style="color:black;background-color:#FFC0C7;padding:24px">
-                                <h2 style="font-size:45px;font-weight:700">PHP</h2>
-                                <div style="height:70px;">
-                                    <h5 class="w3-text-dark-grey">A web server programming language</h5>
-                                </div>
-                                <a href="php/default.html"
-                                    class="w3-button ga-fp tut-button black-color w3-margin-bottom">Learn PHP</a>
-                            </div>
-
+                <!-- Categories Start -->
+                <div class="container-xxl py-5 category">
+                    <div class="container">
+                        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                            <h6 class="section-title bg-white text-center text-primary px-3">Categories</h6>
+                            <h1 class="mb-5">Courses Categories</h1>
                         </div>
-                        <div class="w3-col l6 w3-center" style="padding:2% 3%;">
-                            <div class="w3-card-2 w3-round" style="background-color: #FFF4A3;color:black;padding:24px">
-                                <h2 style="font-size:45px;font-weight:700">jQuery</h2>
-                                <div style="height:70px;">
-                                    <h5 class="w3-text-dark-grey">A JS library for developing web pages</h5>
+                        <div class="row g-4 justify-content-center">
+                            @foreach ($categories as $category)
+                                <div class="col-lg-3 col-md-3 col-sm-6 wow zoomIn" data-wow-delay="0.1s">
+                                    <a class="position-relative d-block overflow-hidden" href="">
+                                        <img class="img-fluid" src="/images/{{ $category->image_path }}" alt="">
+                                        <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3"
+                                            style="margin: 1px;">
+                                            <h5 class="m-0">{{ $category->name }}</h5>
+                                            <small class="text-primary">49 Courses</small>
+                                        </div>
+                                    </a>
                                 </div>
-                                <a href="jquery/default.html"
-                                    class="w3-button ga-fp tut-button black-color w3-margin-bottom">Learn jQuery</a>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
-
                 </div>
+                <!-- Categories Start -->
+                <div class="container-xxl py-5">
+                    <div class="container">
+                        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                            <h6 class="section-title bg-white text-center text-primary px-3">Free Courses</h6>
+                            <h1 class="mb-5">Popular Courses</h1>
+                        </div>
+                        <div class="row g-4 justify-content-center">
+                            @foreach ($courses as $course)
+                                <div class="col-lg-3  col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                                    <div class="course-item bg-light">
+                                        <div class="position-relative overflow-hidden">
+                                            <img class="img-fluid" src="/images/{{ $course->image_path }}"
+                                                alt="">
+                                            <div
+                                                class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
+                                                <a href="#"
+                                                    class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end"
+                                                    style="border-radius: 30px 0 0 30px;">Read More</a>
+                                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3"
+                                                    style="border-radius: 0 30px 30px 0;">Join Now</a>
+                                            </div>
+                                        </div>
+                                        <div class="text-center p-4 pb-0">
+
+                                            <h5 class="mb-4">{{ $course->title }}</h5>
+                                        </div>
+                                        <div class="d-flex border-top">
+                                            <small class="flex-fill text-center border-end py-2"><i
+                                                    class="fa fa-user-tie text-primary me-2"></i>John Doe</small>
+                                            <small class="flex-fill text-center border-end py-2"><i
+                                                    class="fa fa-clock text-primary me-2"></i>1.49 Hrs</small>
+                                            <small class="flex-fill text-center py-2"><i
+                                                    class="fa fa-user text-primary me-2"></i>30 Students</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Courses Start -->
+                <div class="container-xxl py-5">
+                    <div class="container">
+                        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                            <h6 class="section-title bg-white text-center text-primary px-3"> Courses With Certificate</h6>
+                            <h1 class="mb-5">Popular Courses</h1>
+                        </div>
+                        <div class="row g-4 justify-content-center">
+                            @foreach ($coursePayment as $course)
+                                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                                    <div class="course-item bg-light">
+                                        <div class="position-relative overflow-hidden">
+                                            <img class="img-fluid" src="/images/{{ $course->image_path }}"
+                                                alt="">
+                                            <div
+                                                class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
+                                                <a href="#"
+                                                    class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end"
+                                                    style="border-radius: 30px 0 0 30px;">Read More</a>
+                                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3"
+                                                    style="border-radius: 0 30px 30px 0;">Join Now</a>
+                                            </div>
+                                        </div>
+                                        <div class="text-center p-4 pb-0">
+                                            <h3 class="mb-0">${{ $course->price }}</h3>
+                                            <div class="mb-3">
+                                                <small class="fa fa-star text-primary"></small>
+                                                <small class="fa fa-star text-primary"></small>
+                                                <small class="fa fa-star text-primary"></small>
+                                                <small class="fa fa-star text-primary"></small>
+                                                <small class="fa fa-star text-primary"></small>
+                                                <small>(123)</small>
+                                            </div>
+                                            <h5 class="mb-4">{{ $course->title }}</h5>
+                                        </div>
+                                        <div class="d-flex border-top">
+                                            <small class="flex-fill text-center border-end py-2"><i
+                                                    class="fa fa-user-tie text-primary me-2"></i>John Doe</small>
+                                            <small class="flex-fill text-center border-end py-2"><i
+                                                    class="fa fa-clock text-primary me-2"></i>1.49 Hrs</small>
+                                            <small class="flex-fill text-center py-2"><i
+                                                    class="fa fa-user text-primary me-2"></i>30 Students</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+
+                        </div>
+                    </div>
+                </div>
+                <!-- Courses End -->
+
             </div>
-        </div>
-        <div id="footer" class="footer w3-container w3-white" style="border-top:0">
-            <div class="w3-col l2 m12" id="right" style="display: none;">&nbsp;</div>
-            <script>
-                function secondSnigel() {};
-            </script>
-
-        </div>
-
-        <div id="footerwrapper">
-        </div>
-
-    </div>
-    @endsection
+        @endsection

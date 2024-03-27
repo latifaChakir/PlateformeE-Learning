@@ -13,7 +13,7 @@
                         </a>
                         <div class="exercises " id="exercises{{ $key }}" style="display: none;">
                             @foreach ($chapter->questions as $exercise)
-                                <a href="/contentexo/{{ $exercise->id }}" class="exercise-title ">
+                                <a href="#" class="exercise-title" data-exercise-id="{{ $exercise->id }}">
                                     {{ $exercise->title }}
                                 </a>
                             @endforeach
@@ -24,27 +24,11 @@
             </div>
         </div>
     </div>
-    <div class='w3-main w3-light-grey' id='belowtopnav' style='margin-left:220px;'>
-
-        <div class='w3-row w3-white'>
-
-            <div class='w3-col l10 m12' id='main'>
-                <div id='mainLeaderboard' style='overflow:hidden;'>
-                    <div id="adngin-main_leaderboard-0"></div>
-                </div>
-                {{-- @foreach ($courseContent as $content) --}}
-                <h3 style="margin-left: 20px">title</h3>
-                <div style="margin-left: 20px !important;">
-                    {{-- {!! $content->content !!} --}}
-                </div>
-
-                {{-- @endforeach --}}
-                <hr>
-
-            </div>
-        </div>
-
+    <div id="results">
+        <!-- Contenu de la réponse -->
     </div>
+
+
 @endsection
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -72,6 +56,8 @@
 });
 
 </script>
+
+
 
 
 

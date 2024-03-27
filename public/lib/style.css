@@ -34,18 +34,17 @@
 }
 
 .herosection {
-    background-image: url('https://www.w3schools.com/images/background_in_space.gif');
+
     background-repeat: no-repeat, repeat;
     background-position: 90% 60%, center center
         /*left  top*/
     ;
     padding-top: 90px;
-    padding-bottom: 230px;
+
 }
 
 @media screen and (max-width: 992px) {
     .herosection {
-        background-image: url('https://www.w3schools.com/images/background_in_space.gif');
         background-position: center center
             /*left top*/
         ;
@@ -813,7 +812,7 @@ body.darkpagetheme .icons-right {
 
 #subtopnav {
     position: fixed;
-    background-color: #282A35;
+    background-color: #121732 !important;
     color: #f1f1f1;
     padding: 0;
     letter-spacing: 1px;
