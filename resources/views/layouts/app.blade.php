@@ -76,7 +76,7 @@
 
                 <a class="tnb-nav-btn w3-bar-item w3-button barex bar-item-hover w3-padding-16 ga-top ga-top-exc-and-quz "
                     href="/showExercices" id="navbtn_exercises" title="Exercises and Quizzes" role="button">
-                    Exercises
+                    Exercises & Quizzes
                     <i class="fa fa-caret-down" style="font-size: 15px" aria-hidden="true"></i>
                     <i class="fa fa-caret-up" style="display: none; font-size: 15px" aria-hidden="true"></i>
                 </a>
@@ -88,7 +88,6 @@
                     <i class="fa fa-caret-down" style="font-size: 15px" aria-hidden="true"></i>
                     <i class="fa fa-caret-up" style="display: none; font-size: 15px" aria-hidden="true"></i>
                 </a>
-
 
             </nav>
 

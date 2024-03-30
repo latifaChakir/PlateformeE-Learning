@@ -22,4 +22,9 @@ class Chapter extends Model
     {
         return $this->hasMany(Questions::class);
     }
+
+    public function progression()
+    {
+        return $this->belongsTo(Progression::class);
+    }
 }

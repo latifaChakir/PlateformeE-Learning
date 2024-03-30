@@ -25,23 +25,23 @@
                                 {{ $cours->title }}
                             </option>
                         @endforeach
-                    </select>                        
+                    </select>
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control" name="chapter_name" value="{{ $course->chapters_title }}">
                 </div>
-                
+
                 <div class="form-group">
                     <input type="text" class="form-control" name="title" placeholder="Title" value="{{ $course->title }}">
                 </div>
                 <div class="form-group">
                     <div class="form-group">
-                        <textarea id="summernote" name="content" style="margin-top: 50px !important;">{{ $course->content }}</textarea> 
+                        <textarea id="summernote" name="content" style="margin-top: 50px !important;">{{ $course->content }}</textarea>
                     </div>
-                                   
+
                 </div>
                 <div class="buttons justify-content-end">
-                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                    <a href="/contentCourse"><input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel"></a>
                     <input type="submit" class="btn btn-default" value="Save">
                 </div>
         </form>

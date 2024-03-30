@@ -21,7 +21,7 @@ class ContentController extends Controller
         FROM content_courses
         JOIN chapters ON content_courses.chapter_id = chapters.id
         JOIN courses ON chapters.course_id = courses.id');
-        $courses=Course::where('price', 0)->get();
+        $courses=Course::all();
         return view("dashboard.Contenu.index", compact("contents","courses"));
     }
 
@@ -95,12 +95,10 @@ class ContentController extends Controller
         $chapter = Chapter::findOrFail($id);
         $chapter->title = $request->chapter_name;
         $chapter->save();
-
         $content = ContentCourse::where('chapter_id', $chapter->id)->firstOrFail();
         $content->title = $request->title;
         $content->content = $request->content;
         $content->save();
-
         return redirect('/contentCourse')->with('success', 'Course updated successfully');
     }
 

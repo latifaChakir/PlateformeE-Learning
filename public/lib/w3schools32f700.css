@@ -356,7 +356,7 @@ padding-left:16px;
 margin:-4px 0 4px 0;
 width:204px;
 }
-#sidenav a {font-family:"Segoe UI",Arial,sans-serif;text-decoration:none;display:block;padding:2px 1px 1px 50px; font-weight: 500;}
+#sidenav a {font-family:"Segoe UI",Arial,sans-serif;text-decoration:none;display:block;padding:2px 1px 1px 50px; font-weight: 500; border: 1px solid #cccccc !important; margin-top: 0.5px;}
 #sidenav a:hover,#sidenav a:focus {color:#000000;background-color:#cccccc;}
 #sidenav a.active {background-color:#075985!important;color:#ffffff!important;}
 #sidenav a.activesub:link,#sidenav a.activesub:visited {background-color:#ddd;color:#000;}

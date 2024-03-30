@@ -19,9 +19,12 @@
                                     <div class="s_service_text text-sm-center text-xs-center fs-5 fw-bold mb-4">
                                         Let's Start exercise of <strong>{{ $course->title }}</strong>
                                     </div>
-                                    <div class="service_btn center">
+                                    <div class="service_btn center" style="display: flex; gap:10px">
                                         <a href="/startExo/{{ $course->id }}" style="border-radius: 10px; padding: 20px 40px; background-color: #f0f0f0; border: 1px solid rgb(70, 70, 70);"
-                                            class="btn btn-lg-square waves-effect waves-orange">Start</a>
+                                            class="btn btn-lg-square waves-effect waves-orange">Exos</a>
+
+                                            <a href="/quiz/{{ $course->id }}" style="border-radius: 10px; padding: 20px 40px; background-color: #f0f0f0; border: 1px solid rgb(70, 70, 70);"
+                                                class="btn btn-lg-square waves-effect waves-orange">Quiz</a>
                                     </div>
                                 </div>
                             </div>

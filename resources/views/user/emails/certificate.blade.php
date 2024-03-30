@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div style="position: relative;">
+
+        <h2 style="position: absolute; top: 60px; left: 230px; color: black; font-size: 24px;">{{ $body }} Certificate</h2>
+        <h4 style="position: absolute; top: 170px; left: 300px; color: black; font-size: 18px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">{{ $userName }}</h4>
+        <img class="ticket-image" src="cid:certificat.png" alt="Embedded Image" width="700px" >
+    </div>
+
+</body>
+</html>
+
+

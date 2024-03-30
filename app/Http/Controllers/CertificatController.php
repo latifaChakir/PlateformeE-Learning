@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Course;
 use Illuminate\Http\Request;
+use Stripe\Checkout\Session;
+use Stripe\Stripe;
 
 class CertificatController extends Controller
 {
@@ -29,5 +31,45 @@ class CertificatController extends Controller
     }
 
     public function checkout(Request $request)
-    {}
+{
+    $decodedUser = $request->decoded_user;
+    $userId = $decodedUser->id;
+
+    $course = Course::find($request->id);
+    $title = $course->title;
+    $price = $course->price;
+
+    Stripe::setApiKey(config('stripe.sk'));
+
+    $session = Session::create([
+        'payment_method_types' => ['card'],
+        'line_items' => [
+            [
+                'price_data' => [
+                    'currency' => 'USD',
+                    'product_data' => [
+                        'name' => $title,
+                    ],
+                    'unit_amount' => $price * 100,
+                ],
+                'quantity' => 1,
+            ]
+        ],
+        'mode' => 'payment',
+        'success_url' => route('success', $course),
+        'cancel_url' => 'http://127.0.0.1:8000/error',
+        'metadata' => [
+            'user_id' => $userId,
+            'course_id' => $request->id,
+        ],
+    ]);
+
+    return redirect()->away($session->url);
+}
+
+    public function success(Request $request, $courseId)
+{
+    $course=Course::find($courseId);
+    return redirect('/courses/'.$courseId);
+}
 }

@@ -15,7 +15,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title">
-                        <h3>Get <span class="alternate">ticket</span></h3>
+                        <h3>Get <span class="alternate">Certicate</span></h3>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusm tempor incididunt ut labore</p>
                     </div>
                 </div>
@@ -32,7 +32,7 @@
                             <!-- Price -->
                             <div class="price">
                                 <h2>{{ $course->price }}<span>dh</span></h2>
-                                <p>/Person</p>
+                                <p>/Course</p>
                             </div>
                         </div>
                         <div class="pricing-body">
@@ -57,14 +57,14 @@
                             </div>
                             <!-- Price -->
                             <div class="price">
-                                <h2>Book a seat<span></span></h2>
-                                <p>/Person</p>
+                                <h2>Book a course<span></span></h2>
+                                <p>/Course</p>
                             </div>
                         </div>
                         <div class="pricing-body">
                             <!-- Feature List -->
                             <div class="section-title">
-                                <p>Click the button below to pay for your ticket.</p>
+                                <p>Click the button below to pay for your course.</p>
                             </div>
                                     <div class="pricing-footer text-center">
                                         <a href="/checkout/{{ $course->id }}" class="btn btn-transparent-md">Pay Now</a>

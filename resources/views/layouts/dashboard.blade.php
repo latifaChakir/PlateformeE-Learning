@@ -101,6 +101,15 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link text-dark {{ Request::is('/quizzes') ? 'active bg-gradient-primary' : '' }}"
+                        href="{{ route('quizzes.index') }}">
+                        <div class="text-dark text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fa fa-pencil"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Quizzes</span>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link text-dark " href="../pages/profile.html">
                         <div class="text-dark text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">person</i>
