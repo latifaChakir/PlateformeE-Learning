@@ -54,13 +54,15 @@
                             @csrf
                             <div class="pricing-body" id="quizContainer">
                                 @foreach ($questions as $key => $question)
-                                <div class="pricing-body question" id="question{{ $key }}" style="{{ $key > 0 ? 'display:none' : '' }}">
+                                <input type="hidden" name="totalQuestions" value="{{ count($questions) }}">
+
+                                <div class="pricing-body question" id="question{{ $question->id }}" style="{{ $key > 0 ? 'display:none' : '' }}">
                                     <p>{{ $question->text_question }}</p>
                                     <ul class="feature-list m-4 p-0">
                                         @foreach ($question->options as $option)
                                         <li>
                                             <label>
-                                                <input type="radio" name="answers[{{ $key }}]" value="{{ $option->id }}">
+                                                <input type="radio" name="answers[{{ $question->id }}]" value="{{ $option->id }}">
                                                 {{ $option->option_text }}
                                             </label>
                                         </li>
@@ -75,7 +77,6 @@
                                 @endforeach
                             </div>
                         </form>
-
 
                     </div>
                 </div>
@@ -94,16 +95,16 @@
             button.addEventListener('click', function() {
                 const currentQuestion = this.parentNode;
                 const nextQuestionIndex = parseInt(this.getAttribute('data-next'));
+
                 if (nextQuestionIndex < questions.length) {
                     currentQuestion.style.display = 'none';
                     questions[nextQuestionIndex].style.display = 'block';
                 } else {
-                    // Si c'est la dernière question, vous pouvez envoyer le formulaire ici
-                    // document.getElementById('quizForm').submit();
-                    // Vous pouvez également gérer le comportement après avoir répondu à toutes les questions
                     alert('Vous avez répondu à toutes les questions.');
                 }
             });
         });
     });
 </script>
+
+

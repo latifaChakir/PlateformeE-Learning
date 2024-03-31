@@ -48,9 +48,8 @@ Route::resource('quizzes', QuizzController::class);
 Route::get('/quizzes/{quiz}', [QuizzController::class, 'cratequestions'])->name('quizzes.questions.create');
 Route::post('/addquestionQuiz', [QuizzController::class, 'add']);
 
-Route::post('/store-responses', 'QuizController@storeResponses')->name('store_responses');
-
-
+Route::post('/storeResponse', [quizController::class, 'storeResponses'])->name('store_responses')->middleware('jwt.check');
+Route::get('/showResult/{courseId}', [quizController::class, 'showResults'])->name('showResult')->middleware('jwt.check');;
 
 
 Route::get('/certificat', [CertificatController::class, 'index']);
