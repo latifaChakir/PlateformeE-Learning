@@ -45,55 +45,39 @@
         <div class="collapse navbar-collapse  w-auto  max-height-vh-100" id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link text-dark {{ Request::is('/dashboard') ? 'active bg-gradient-primary' : '' }}"
-                        href="/dashboard">
+                    <a class="nav-link text-dark {{ Request::is('/dashboard') ? 'active bg-gradient-primary' : '' }}" href="/dashboard">
                         <div class="text-dark text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">dashboard</i>
                         </div>
                         <span class="nav-link-text ms-1">Dashboard</span>
                     </a>
                 </li>
-
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="/">
+                    <a class="nav-link text-dark {{ Request::is('categories') ? 'active bg-gradient-primary' : '' }}" href="{{ route('categories.index') }}">
                         <div class="text-dark text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class='fa fa-user-circle-o material-icons'></i>
-                        </div>
-                        <span class="nav-link-text ms-1">contacts</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark {{ Request::is('/categories') ? 'active bg-gradient-primary' : '' }}"
-                        href="{{ route('categories.index') }}">
-                        <div class="text-dark text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class='fa fa-newspaper-o material-icons'></i>
+                            <i class="fa fa-folder"></i>
                         </div>
                         <span class="nav-link-text ms-1">Categories</span>
                     </a>
                 </li>
-
                 <li class="nav-item">
-                    <a class="nav-link text-dark {{ Request::is('/course') ? 'active bg-gradient-primary' : '' }}"
-                        href="{{ route('course.index') }}">
+                    <a class="nav-link text-dark {{ Request::is('course') ? 'active bg-gradient-primary' : '' }}" href="{{ route('course.index') }}">
                         <div class="text-dark text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class='fa fa-newspaper-o material-icons'></i>
+                            <i class="fa fa-book"></i>
                         </div>
                         <span class="nav-link-text ms-1">Courses</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark {{ Request::is('/contentCourse') ? 'active bg-gradient-primary' : '' }}"
-                        href="{{ route('contentCourse.index') }}">
+                    <a class="nav-link text-dark {{ Request::is('contentCourse*') ? 'active bg-gradient-primary' : '' }}" href="{{ route('contentCourse.index') }}">
                         <div class="text-dark text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa fa-book-open"></i>
-
                         </div>
                         <span class="nav-link-text ms-1">ContentCourse</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark {{ Request::is('/exercice') ? 'active bg-gradient-primary' : '' }}"
-                        href="{{ route('exercice.index') }}">
+                    <a class="nav-link text-dark {{ Request::is('exercice*') ? 'active bg-gradient-primary' : '' }}" href="{{ route('exercice.index') }}">
                         <div class="text-dark text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa fa-pencil"></i>
                         </div>
@@ -101,16 +85,16 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark {{ Request::is('/quizzes') ? 'active bg-gradient-primary' : '' }}"
-                        href="{{ route('quizzes.index') }}">
+                    <a class="nav-link text-dark {{ Request::is('quizzes*') ? 'active bg-gradient-primary' : '' }}" href="{{ route('quizzes.index') }}">
                         <div class="text-dark text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="fa fa-pencil"></i>
+                            <i class="fa fa-question-circle"></i>
                         </div>
                         <span class="nav-link-text ms-1">Quizzes</span>
                     </a>
                 </li>
+
                 <li class="nav-item">
-                    <a class="nav-link text-dark " href="../pages/profile.html">
+                    <a class="nav-link text-dark" href="../pages/profile.html">
                         <div class="text-dark text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">person</i>
                         </div>
@@ -130,7 +114,7 @@
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                         <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a>
                         </li>
-                        <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Tables</li>
+                        <li class="breadcrumb-item text-sm text-dark " aria-current="page">Tables</li>
                     </ol>
                     <h6 class="font-weight-bolder mb-0">Tables</h6>
                 </nav>
@@ -385,6 +369,13 @@
         });
     </script>
 
+<style>
+    .active {
+         background-color: #075985!important;
+         color: white!important;
+
+    }
+</style>
 </body>
 
 </html>
