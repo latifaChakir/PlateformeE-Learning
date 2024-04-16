@@ -13,6 +13,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\quizController;
 use App\Http\Controllers\QuizzController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,6 +43,7 @@ Route::post('/submitAnswerforCoursPay', [QuestionController::class, 'submitAnswe
 Route::get('/showExercices', [QuestionController::class, 'showExercices']);
 Route::resource('exercice', ExerciceController::class);
 Route::resource('course', CourseController::class);
+Route::resource('users', UserController::class);
 Route::resource('contentCourse', ContentController::class);
 Route::resource('categories', CategoryController::class);
 Route::resource('quizzes', QuizzController::class);

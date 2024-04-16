@@ -94,11 +94,11 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="../pages/profile.html">
+                    <a class="nav-link text-dark{{ Request::is('users*') ? 'active bg-gradient-primary' : '' }}" href="{{ route('users.index') }}">
                         <div class="text-dark text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">person</i>
                         </div>
-                        <span class="nav-link-text ms-1">profile</span>
+                        <span class="nav-link-text ms-1">Users</span>
                     </a>
                 </li>
             </ul>

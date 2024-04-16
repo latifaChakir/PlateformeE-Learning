@@ -14,7 +14,7 @@
                     <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                         <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3 ">
                             <div class="d-flex justify-content-between">
-                                <h6 class="text-white text-capitalize ps-3">Courses table</h6>
+                                <h6 class="text-white text-capitalize ps-3">Users table</h6>
                                 <a href="#addModal" data-toggle="modal"><i
                                         class="material-icons text-white me-3">&#xE147;</i> </a>
                             </div>
@@ -26,54 +26,47 @@
                                 <thead>
                                     <tr>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Title</th>
+                                            Name</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Description</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Prix
-                                        </th>
+                                            Email</th>
+
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Created At</th>
+                                            Role</th>
                                         <th
                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                             Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($courses as $course)
+                                    @foreach ($users as $user)
                                         <tr>
                                             <td>
                                                 <div class="d-flex px-2 py-1">
                                                     <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">{{ $course->title }}</h6>
+                                                        <h6 class="mb-0 text-sm">{{ $user->name }}</h6>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="d-flex px-2 py-1">
                                                     <div class="d-flex flex-column justify-content-center">
-                                                        <p class="text-sm text-secondary mb-0"> {!! Str::limit($course->description, 70, '...') !!}</p>
+                                                        <p class="text-sm text-secondary mb-0"> {{$user->email}}</p>
                                                     </div>
                                                 </div>
                                             </td>
+
                                             <td>
                                                 <div class="d-flex px-2 py-1">
                                                     <div class="d-flex flex-column justify-content-center">
-                                                        <p class="text-sm text-secondary mb-0">{{ $course->price }}</p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex px-2 py-1">
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <p class="text-sm text-secondary mb-0">{{ $course->created_at }}</p>
+                                                        <p class="text-sm text-secondary mb-0">{{ $user->role_name }}</p>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td class="align-middle">
                                                 <div class="buttons">
                                                     <a class="btn btn-primary"
-                                                        href="{{ route('course.edit', $course->id) }}">Edit</a>
-                                                    <form action="{{ route('course.destroy', $course->id) }}" method="post">
+                                                        href="{{ route('users.edit', $user->id) }}">Edit</a>
+                                                    <form action="{{ route('users.destroy', $user->id) }}" method="post">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="btn btn-danger">Delete</button>
@@ -93,35 +86,28 @@
         <div id="addModal" class="modal">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
-                    <form id="employeeForm" method="post" action="{{ route('course.store') }}" enctype="multipart/form-data">
+                    <form id="employeeForm" method="post" action="{{ route('users.store') }}" >
                         @csrf
                         <div class="modal-header">
-                            <h4 class="modal-title">Add Course</h4>
+                            <h4 class="modal-title">Add Users</h4>
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <input type="text" class="form-control" name="title" placeholder="Title">
+                                <input type="text" class="form-control" name="name" placeholder="Name">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="description" placeholder="Description">
+                                <input type="text" class="form-control" name="email" placeholder="email">
                             </div>
 
                             <div class="form-group">
-                                <input type="number" class="form-control" name="price" placeholder="Price">
-                            </div>
-                            <div class="form-group">
-                                <label>Category</label>
-                                <select class="form-control" name="category_id" data-placeholder="choose a category">
-                                    @foreach($categories as $category)
-                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                <label>Role</label>
+                                <select class="form-control" name="role_id" data-placeholder="choose a role">
+                                    @foreach($roles as $role)
+                                    <option value="{{ $role->id }}">{{ $role->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label>Cours Image </label>
-                                <input type="file" class="form-control" name="image_path" accept="image/*">
-                            </div>
-
+                           
                             <div class="buttons justify-content-end">
                                 <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
                                 <input type="submit" class="btn btn-default" value="Save">

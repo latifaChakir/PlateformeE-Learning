@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Course;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,8 @@ class CourseController extends Controller
      */
     public function index(){
         $courses = Course::all();
-        return view("dashboard.course.courses",compact("courses"));
+        $categories=Category::all();
+        return view("dashboard.course.courses",compact("courses","categories"));
     }
 
     /**
@@ -32,7 +34,8 @@ class CourseController extends Controller
             'title' => 'required',
             'description' => 'required',
             'image_path' => 'required|image|mimes:jpeg,png,jpg,svg,gif|max:2048',
-            'price'
+            'price',
+            'category_id' => 'required',
         ]);
         $uploadDir = 'images/';
         $uploadFileName = uniqid() . '.' . $request->file('image_path')->getClientOriginalExtension();
@@ -43,6 +46,7 @@ class CourseController extends Controller
         $course->title = $request->title;
         $course->price = $request->price;
         $course->description = $request->description;
+        $course->id_categorie = $request->category_id;
         $course->image_path = $uploadFileName;
 
         $course->save();
@@ -63,8 +67,9 @@ class CourseController extends Controller
      */
     public function edit(string $id)
     {
+        $categories=Category::all();
         $course = Course::find($id);
-        return view('dashboard.course.editcourse', compact('course'));
+        return view('dashboard.course.editcourse', compact('course','categories'));
     }
 
     /**
@@ -76,6 +81,7 @@ class CourseController extends Controller
             'title' => 'required',
             'description' => 'required',
             'price'=>'required',
+            'category_id' => 'required',
             'image_path' => 'image|mimes:jpeg,png,jpg,svg,gif|max:2048',
         ]);
 
@@ -83,6 +89,8 @@ class CourseController extends Controller
         $course->title = $request->title;
         $course->description = $request->description;
         $course->price = $request->price;
+        $course->id_categorie = $request->category_id;
+
         if($request->hasfile('image_path')){
             $uploadFileName = uniqid() . '.' . $request->file('image_path')->getClientOriginalExtension();
             $uploadDir = 'images/';

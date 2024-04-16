@@ -28,6 +28,17 @@
                 <input type="number" class="form-control task-desc" name="price" value="{{ $course->price }}">
             </div>
             <div class="mb-3 mx-3">
+                <label class="form-label">Category</label>
+                <select class="form-control task-desc" name="category_id" data-placeholder="choose a category">
+                    @foreach($categories as $category)
+                    <option value="{{ $category->id }}" @if($category->id == $course->id_categorie) selected @endif>
+                        {{ $category->name }}
+                    </option>
+                    @endforeach
+                </select>
+
+            </div>
+            <div class="mb-3 mx-3">
                 <img src="/images/{{ $course->image_path }}" width="300px">
                 <input type="file" class="form-control " name="image_path" accept="image/*">
             </div>
