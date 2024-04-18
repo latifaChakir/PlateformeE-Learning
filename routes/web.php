@@ -43,7 +43,7 @@ Route::get('/', [AccueilController::class, 'index']);
 Route::get('/content/{idcours}/{chapterid}', [ChapterController::class, 'index'])->middleware('jwt.check');
 ;
 Route::get('/courses/{id}', [HomeController::class, 'index']);
-Route::get('/startExo/{id}', [QuestionController::class, 'startExo']);
+Route::get('/startExo/{id}', [QuestionController::class, 'startExo'])->middleware('jwt.check');;
 Route::get('/contentexo/{id}', [QuestionController::class, 'contentExo']);
 Route::get('/showanswer/{id}', [QuestionController::class, 'showAnswer']);
 

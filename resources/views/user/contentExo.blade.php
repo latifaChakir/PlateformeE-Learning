@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>Document</title>
     <style>
         #assignmentcontainer {
@@ -13,7 +14,6 @@
             padding-top: 50px;
             padding-bottom: 20px;
             min-height: 200px;
-            width: 700px;
             font-family: Consolas, Menlo, "Courier New", Courier, monospace;
             font-size: 120%;
             line-height: 1.7em;
@@ -22,6 +22,7 @@
         }
     </style>
 </head>
+
 
 <body>
     <div class='w3-main w3-light-grey' style='margin-left:220px;' id="results">
@@ -37,7 +38,7 @@
                             <input type="hidden" name="course_id" value="{{ $exercice->chapter->course_id }}">
                             <label for="">Your Answer :</label>
                             <div class="form-group">
-                                <textarea id="summernote" name="answer" style="margin-top: 30px !important; width: 500px; height: 100px;"></textarea>
+                                <textarea id="summernote" name="answer" style="margin-top: 30px !important; width: 100%; height: 100px;"></textarea>
                             </div>
                             <button type="submit" class="w3-bar-item w3-btn"
                                 style="background-color: #075985 !important; color: #FFF !important;border-radius: 10px;">Submit</button>
@@ -45,12 +46,10 @@
                     </div>
                     <hr>
                 </div>
-                <p id="answerDisplay" style="display: none"></p>
-                <button class="w3-bar-item w3-btn show-answer-btn"
-                    style="background-color: #B0C4D1 !important; color: #000 !important; margin:20px;border-radius: 10px;"
-                    data-exercise-id="{{ $exercice->id }}">Show Answer</button>
+
             </div>
         </div>
+
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 

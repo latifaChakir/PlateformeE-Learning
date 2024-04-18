@@ -26,21 +26,28 @@ class QuestionController extends Controller
        return view('searchexercice', compact('courses'));
    }
 
-    public function startExo($idcours)
+    public function startExo(request $request, $idcours)
     {
+        $decodedUser = $request->decoded_user;
+        $userId = $decodedUser->id;
         $course = Course::findOrFail($idcours);
         $chapters = $course->chapters()->get();
         $exercices = Questions::with('chapter')->get();
         $courses = Course::where('price', 0)->get();
-        return view('user.startExo', compact('course', 'chapters', 'courses', 'exercices'));
+        $user_answers=Answer::where('user_id',$userId)->get();
+
+        // dd($user_answers);
+        return view('user.startExo', compact('course', 'chapters', 'courses', 'exercices','user_answers'));
 
     }
 
     public function contentExo($exerId)
     {
+
         $exercice = Questions::with('chapter')->findOrFail($exerId);
         $answer = $exercice->answer;
         $chapters = $exercice->chapter;
+        // $user_answers=Answer::where('user_id',$userId)->get();
         return view('user.contentExo', compact('exercice', 'chapters'));
 
     }
@@ -64,21 +71,22 @@ class QuestionController extends Controller
             'course_id' => 'required'
         ]);
 
-        $question = Questions::findorFail($request->id);
+        $question = Questions::findOrFail($request->id);
         $answer = new Answer();
         $answer->answer_text = $request->answer;
         $answer->question_id = $request->id;
-        $answer->user_id=$userId;
+        $answer->user_id = $userId;
         $answer->save();
 
-        if ($request->answer == $question->answer) {
-            $answer->is_correct = true;
-            $answer->save();
+        $isCorrect = ($request->answer == $question->answer);
+        $answer->is_correct = $isCorrect;
+        $answer->save();
 
-        }
-        return redirect('startExo/' . $request->course_id);
+        $message = $isCorrect ? 'Vous avez répondu correctement.' : 'Vous n\'avez pas répondu correctement.';
 
+        return redirect('startExo/' . $request->course_id)->with('message', $message);
     }
+
 
 
     public function submitAnswerCoursPayant(Request $request)

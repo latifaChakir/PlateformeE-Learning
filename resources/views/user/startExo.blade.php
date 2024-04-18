@@ -16,17 +16,24 @@
                         </a>
                         <div class="exercises " id="exercises{{ $key }}" style="display: none;">
                             @foreach ($chapter->questions as $exercise)
-                                <a href="#" class="exercise-title" data-exercise-id="{{ $exercise->id }}">
-                                    {{ $exercise->title }}
-                                </a>
-                            @endforeach
+                            <a href="#" class="exercise-title" data-exercise-id="{{ $exercise->id }}">
+                                {{ $exercise->title }}
+                                @if ($user_answers->where('question_id', $exercise->id)->where('is_correct', 1)->count() > 0)
+                                    <i class="fa fa-check-circle"></i>
+                                @endif
+                            </a>
+                        @endforeach
+
                         </div>
                     </div>
                 @endforeach
+
                 <br><br>
             </div>
         </div>
     </div>
+
+
     <div id="results">
         <!-- Contenu de la réponse -->
     </div>
