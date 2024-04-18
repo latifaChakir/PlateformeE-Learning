@@ -17,6 +17,15 @@ class QuestionController extends Controller
         return view('user.exercice', compact('courses'));
     }
 
+    public function search(Request $request)
+   {
+       $searchTerm = $request->input('search');
+       $courses = Course::where('price', 0)
+              ->where('title', 'like', "%{$searchTerm}%")
+              ->get();
+       return view('searchexercice', compact('courses'));
+   }
+
     public function startExo($idcours)
     {
         $course = Course::findOrFail($idcours);

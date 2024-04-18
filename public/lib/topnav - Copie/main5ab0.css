@@ -86,9 +86,9 @@
   display: block;
 }
 @media (max-width: 954px) {
-  #top-nav-bar .tnb-desktop-nav #navbtn_certified {
+  /* #top-nav-bar .tnb-desktop-nav #navbtn_certified {
     display: none;
-  }
+  } */
 }
 @media (max-width: 688px) {
   #top-nav-bar .tnb-desktop-nav {
@@ -913,7 +913,7 @@
   border-radius: 25px;
   margin-right: -39px;
   font-size: 16px;
-  
+
 }
 #top-nav-bar .tnb-right-section .tnb-profile-btn > .tnb-profile-icon {
   position: absolute;

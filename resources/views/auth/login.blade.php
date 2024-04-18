@@ -78,13 +78,10 @@
                       <label class="form-label"></label>
                       <input type="password" class="form-control" name="password" required placeholder="Password" value="{{ old('password') }}">
                   </div>
-                  <div class="form-check form-switch d-flex align-items-center mb-3">
-                      <input class="form-check-input" type="checkbox" id="rememberMe" name="remember">
-                      <label class="form-check-label mb-0 ms-2" for="rememberMe">Remember me</label>
-                  </div>
                   <div class="text-center">
                       <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">Sign in</button>
                   </div>
+                  <p class="mt-4 text-sm text-center"><a href="/forgetpassword" style="color:rgba(18, 32, 46, 0.8);">Forgot Password?</a></p>
                   <p class="mt-4 text-sm text-center">
                       Don't have an account?
                       <a href="{{ route('auth.register') }}" class="text-primary text-gradient font-weight-bold">Sign up</a>

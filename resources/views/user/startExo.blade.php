@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="next"><button class="afficheExo" id="exo-aside"
+            style="display: none; background-color:#fff; border:none"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;❯&nbsp;&nbsp;&nbsp;</span></button>
+    </div>
     <div class='w3-sidebar w3-collapse' id='sidenav'>
         <div id='leftmenuinner'>
             <div id='leftmenuinnerinner'>
@@ -27,37 +30,64 @@
     <div id="results">
         <!-- Contenu de la réponse -->
     </div>
-
-
 @endsection
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-   document.addEventListener("DOMContentLoaded", function() {
-    var exercises = document.querySelectorAll(".exercises");
-    for (var i = 1; i < exercises.length; i++) {
-        exercises[i].style.display = "none";
+    document.addEventListener("DOMContentLoaded", function() {
+        var exercises = document.querySelectorAll(".exercises");
+        for (var i = 1; i < exercises.length; i++) {
+            exercises[i].style.display = "none";
+        }
+
+        var firstChapterExercises = document.querySelector(".chapter-toggle:first-of-type + .exercises");
+        firstChapterExercises.style.display = "block";
+
+        var chapterToggles = document.querySelectorAll(".chapter-toggle");
+        chapterToggles.forEach(function(chapterToggle) {
+            chapterToggle.addEventListener("click", function() {
+                var exercises = this.nextElementSibling;
+                if (exercises.style.display === "none") {
+                    exercises.style.display = "block";
+                } else {
+                    exercises.style.display = "none";
+                }
+            });
+        });
+    });
+</script>
+<style>
+    @media (max-width: 990px) {
+        .next button {
+            display: block !important;
+            margin-top: 100px !important;
+        }
+
+        #main {
+            margin-top: 5px !important;
+        }
+
+        #sidenav {
+            display: none;
+        }
+
+        #leftmenuinner {
+            padding-top: 10px !important;
+        }
     }
+</style>
 
-    var firstChapterExercises = document.querySelector(".chapter-toggle:first-of-type + .exercises");
-    firstChapterExercises.style.display = "block";
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const btn = document.getElementById('exo-aside');
+        const aside = document.getElementById('sidenav');
 
-    var chapterToggles = document.querySelectorAll(".chapter-toggle");
-    chapterToggles.forEach(function(chapterToggle) {
-        chapterToggle.addEventListener("click", function() {
-            var exercises = this.nextElementSibling;
-            if (exercises.style.display === "none") {
-                exercises.style.display = "block";
+        btn.addEventListener('click', function() {
+            if (aside.style.display === "none" || aside.style.display === "") {
+                aside.style.display = "block";
             } else {
-                exercises.style.display = "none";
+                aside.style.display = "none";
             }
         });
     });
-});
-
 </script>
-
-
-
-
-

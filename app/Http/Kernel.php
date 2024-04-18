@@ -46,6 +46,9 @@ class Kernel extends HttpKernel
         'jwt.check' => [
             \App\Http\Middleware\CheckJwtMiddleware::class
         ],
+        'admin' => [
+            \App\Http\Middleware\AdminMiddleware::class,
+        ],
     ];
 
     /**

@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="next"><button class="afficheExo" id="chapter-aside"
+            style="display: none; background-color:#fff; border:none"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;❯&nbsp;&nbsp;&nbsp;</span></button>
+    </div>
     <div class='w3-sidebar w3-collapse' id='sidenav'>
         <div id='leftmenuinner'>
             <div id='leftmenuinnerinner'>
@@ -83,4 +86,43 @@
             color: green;
         }
     </style>
+    <style>
+        @media (max-width: 990px) {
+            .next button {
+                display: block !important;
+                margin-top: 100px !important;
+            }
+
+            #main {
+                margin-top: 5px !important;
+            }
+
+            #sidenav {
+                display: none;
+            }
+
+            #leftmenuinner {
+                padding-top: 10px !important;
+            }
+
+            #mainLeaderboard {
+                height: 3px;
+            }
+        }
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const btn = document.getElementById('chapter-aside');
+            const aside = document.getElementById('sidenav');
+
+            btn.addEventListener('click', function() {
+                if (aside.style.display === "none" || aside.style.display === "") {
+                    aside.style.display = "block";
+                } else {
+                    aside.style.display = "none";
+                }
+            });
+        });
+    </script>
 @endsection

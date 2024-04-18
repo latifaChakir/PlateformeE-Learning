@@ -5,11 +5,11 @@
     <header>
 
     </header>
-    <div class='w3-main w3-light-grey' id='belowtopnav'>
+    <div class='w3-main w3-light-grey' id='belowtopnav' >
 
         <div class='w3-row w3-white'>
 
-            <div class='w3-col l12 m12'>
+            <div class='w3-col l12 m12' style="background-color: #fff !important">
                 <div class="back w3-center herosection" id="app">
 
                 </div>
@@ -69,7 +69,7 @@
 
                 <!-- About Start -->
                 <div class="container-xxl py-5">
-                    <div class="container">
+                    <div class="container" >
                         <div class="row g-5">
                             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
                                 <div class="position-relative h-100">
@@ -128,18 +128,20 @@
                         </div>
                         <div class="row g-4 justify-content-center">
                             @foreach ($categories as $category)
+                                <?php $numberOfCourses = $category->courses->count(); ?>
                                 <div class="col-lg-3 col-md-3 col-sm-6 wow zoomIn" data-wow-delay="0.1s">
                                     <a class="position-relative d-block overflow-hidden" href="">
                                         <img class="img-fluid" src="/images/{{ $category->image_path }}" alt="">
                                         <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3"
                                             style="margin: 1px;">
                                             <h5 class="m-0">{{ $category->name }}</h5>
-                                            <small class="text-primary">49 Courses</small>
+                                            <small class="text-primary">{{ $numberOfCourses }} Courses</small>
                                         </div>
                                     </a>
                                 </div>
                             @endforeach
                         </div>
+
                     </div>
                 </div>
                 <!-- Categories Start -->
@@ -149,7 +151,7 @@
                             <h6 class="section-title bg-white text-center text-primary px-3">Free Courses</h6>
                             <h1 class="mb-5">Popular Courses</h1>
                         </div>
-                        <div class="row g-4 justify-content-center">
+                        <div class="row g-4 justify-content-center" id="coursesContainer">
                             @foreach ($courses as $course)
                                 <div class="col-lg-3  col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                                     <div class="course-item bg-light">
@@ -180,8 +182,24 @@
                                     </div>
                                 </div>
                             @endforeach
-
                         </div>
+                        <div class="d-flex justify-content-end mt-3">
+                            <a href="/showExercices">
+                                <button
+                                    style="text-align: center;
+                                              border-color: transparent;
+                                              background-color: #06BBCC;
+                                              color: #fff;
+                                              padding-left: 15px;
+                                              padding-right: 15px;
+                                              border: 1px solid #e5e5e5;
+                                              transition: background-color 0.3s;">Show
+                                    All <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i>
+                                </button>
+                            </a>
+                        </div>
+
+
                     </div>
                 </div>
 
@@ -233,9 +251,34 @@
                             @endforeach
 
                         </div>
+
                     </div>
+                    <div class="d-flex justify-content-end">
+                        <a href="/certificat">
+                            <button
+                                style="text-align: center;
+                                          border-color: transparent;
+                                          background-color: #06BBCC;
+                                          color: #fff;
+                                          padding-left: 15px;
+                                          padding-right: 15px;
+                                          border: 1px solid #e5e5e5;
+                                          transition: background-color 0.3s;">Show
+                                All <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i>
+                            </button>
+                        </a>
+                    </div>
+
                 </div>
                 <!-- Courses End -->
 
             </div>
+            @include('layouts.footer')
+
+            <style>
+                button:hover {
+                    background-color: #06BBCC;
+                }
+            </style>
         @endsection
+

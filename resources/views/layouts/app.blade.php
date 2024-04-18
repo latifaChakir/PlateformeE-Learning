@@ -11,23 +11,25 @@
     <meta name="Description"
         content="Well organized and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS, JavaScript, SQL, Python, PHP, Bootstrap, Java, XML and more.">
 
-        <link href="/asset/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <!-- Themefisher Font -->
-        <link href="/asset/plugins/themefisher-font/style.css" rel="stylesheet">
-        <!-- Font Awesome -->
-        <link href="/asset/plugins/font-awsome/css/font-awesome.min.css" rel="stylesheet">
-        <!-- Magnific Popup -->
-        <link href="/asset/plugins/magnific-popup/magnific-popup.css" rel="stylesheet">
-        <!-- Slick Carousel -->
-        <link href="/asset/plugins/slick/slick.css" rel="stylesheet">
-        <link href="/asset/plugins/slick/slick-theme.css" rel="stylesheet">
-        <!-- CUSTOM CSS -->
-        <link href="/asset/css/style.css" rel="stylesheet">
+    <link href="/asset/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Themefisher Font -->
+    <link href="/asset/plugins/themefisher-font/style.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="/asset/plugins/font-awsome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Magnific Popup -->
+    <link href="/asset/plugins/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <!-- Slick Carousel -->
+    <link href="/asset/plugins/slick/slick.css" rel="stylesheet">
+    <link href="/asset/plugins/slick/slick-theme.css" rel="stylesheet">
+    <!-- CUSTOM CSS -->
+    <link href="/asset/css/style.css" rel="stylesheet">
 
-        <!-- FAVICON -->
-        <link href="/asset/images/favicon.png" rel="shortcut icon">
+    <!-- FAVICON -->
+    <link href="/asset/images/favicon.png" rel="shortcut icon">
 
-        <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/%C3%87art_app_beyaz_%282%29.png/600px-%C3%87art_app_beyaz_%282%29.png" type="image/x-icon" />
+    <link rel="icon"
+        href="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/%C3%87art_app_beyaz_%282%29.png/600px-%C3%87art_app_beyaz_%282%29.png"
+        type="image/x-icon" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -38,7 +40,9 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap"
+        rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -64,8 +68,7 @@
                 <img src="/images/logo.png" style="position: relative; z-index: 1; width: 50px !important"
                     aria-hidden="true">
             </a>
-
-            <nav class="tnb-desktop-nav w3-bar-item">
+            <nav class="tnb-desktop-nav w3-bar-item nav-toggle">
                 <a class="tnb-nav-btn w3-bar-item w3-button barex bar-item-hover w3-padding-16 ga-top ga-top-tut-and-ref"
                     href="javascript:void(0)" onclick="TopNavBar.openNavItem('tutorials')" id="navbtn_tutorials"
                     title="Tutorials and References" role="button">
@@ -91,13 +94,15 @@
 
             </nav>
 
-            <a class="tnb-menu-btn w3-bar-item w3-button bar-item-hover w3-padding-16 ga-top ga-top-menu"
-                href="javascript:void(0)" onclick="TopNavBar.openMenu()" title="Menu" aria-label="Menu"
-                role="button">
+            <a id="menuBtn"
+                class="tnb-menu-btn w3-bar-item w3-button bar-item-hover w3-padding-16 ga-top ga-top-menu"
+                title="Menu" aria-label="Menu" role="button">
                 Menu
                 <i class="fa fa-caret-down" style="font-size: 15px" aria-hidden="true"></i>
                 <i class="fa fa-caret-up" style="display: none; font-size: 15px" aria-hidden="true"></i>
             </a>
+
+
 
             <div id="tnb-google-search-container" class="w3-bar-item">
                 <div id="tnb-google-search-inner-container">
@@ -105,10 +110,7 @@
                         Search field
                     </label>
 
-                    <input id="tnb-google-search-input" type="text" placeholder="Search..." autocomplete="off"
-                        onkeydown="TopNavBar.googleSearchAttachKeyPressHandler(event)" aria-label="Search field"
-                        oninput="TopNavBar.searchWithSuggestions(this)" onfocus="TopNavBar.searchWithSuggestions(this)"
-                        onblur="TopNavBar.searchFieldLostFocus(event)" />
+                    <input id="search" type="text" placeholder="Search..." autocomplete="off" />
 
                     <div id="tnb-google-search-submit-btn" class="tnb-button-light" role="button"
                         aria-label="Button to search" onclick="TopNavBar.googleSearchSubmit()">
@@ -122,9 +124,8 @@
                 </div>
 
                 <div id="tnb-google-search-mobile-action-btns">
-                    <div id="tnb-google-search-mobile-show" class="tnb-button"
-                        onclick="TopNavBar.googleSearchShowMobileContainer()" aria-label="Button to open search field"
-                        role="button">
+                    <div id="tnb-google-search-mobile-show" class="tnb-button" onclick="showSearchField()"
+                        aria-label="Button to open search field" role="button">
                         <svg viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M11.8153 10.3439C12.6061 9.2673 13.0732 7.9382 13.0732 6.5C13.0732 2.91015 10.163 0 6.57318 0C2.98333 0 0.0731812 2.91015 0.0731812 6.5C0.0731812 10.0899 2.98333 13 6.57318 13C8.01176 13 9.3412 12.5327 10.4179 11.7415L10.4171 11.7422C10.4466 11.7822 10.4794 11.8204 10.5156 11.8566L14.3661 15.7071C14.7566 16.0976 15.3898 16.0976 15.7803 15.7071C16.1708 15.3166 16.1708 14.6834 15.7803 14.2929L11.9298 10.4424C11.8936 10.4062 11.8553 10.3734 11.8153 10.3439ZM12.0732 6.5C12.0732 9.53757 9.61075 12 6.57318 12C3.53561 12 1.07318 9.53757 1.07318 6.5C1.07318 3.46243 3.53561 1 6.57318 1C9.61075 1 12.0732 3.46243 12.0732 6.5Z"
@@ -132,21 +133,14 @@
                         </svg>
                     </div>
 
-                    <div id="tnb-google-search-mobile-close" class="tnb-button"
-                        onclick="TopNavBar.googleSearchHideMobileContainer()" role="button"
-                        aria-label="Close search field">
+                    <div id="tnb-google-search-mobile-close" class="tnb-button" role="button" aria-label="Close search field"
+                        style="display: none;">
                         <i>&times;</i>
                     </div>
                 </div>
             </div>
 
-            <div id="tnb-dark-mode-toggle-wrapper" class="w3-bar-item">
-                <a id="tnb-dark-mode-toggle-btn" href="javascript:void(0);"
-                    class="tnb-button fa ga-nav ga-dark-mode-toggle" onclick="TopNavBar.toggleUserPreferredTheme()"
-                    role="button" title="Toggle light/dark mode" aria-label="Toggle light/dark mode">
-                    <i>&#xe80b;</i>
-                </a>
-            </div>
+
 
             <div class="tnb-right-section">
                 <a href="/login"
@@ -329,7 +323,7 @@
             <div class="gcse-search"></div>
         </div>
     </div>
-
+    {{-- results       --------------------------------------------------------- --}}
     <div id="subtopnav" onmousedown="startscrolling_subtopnav(event)" onmousemove="scrolling_subtopnav(event)"
         onmouseup="endscrolling_subtopnav(event)" onclick="return pellessii(event)">
         <div id="scroll_left_btn" class="w3-hide-medium w3-hide-small">
@@ -358,14 +352,58 @@
             </div>
         </div>
     </div>
+    <aside id="navAside" class="nav-aside-hidden" style="background-color: #181d38;width:100%; margin-top:70px">
+        <div class="navbar">
+            <a class="tnb-nav-btn w3-bar-item w3-button barex bar-item-hover w3-padding-16 ga-top ga-top-tut-and-ref"
+                href="javascript:void(0)" onclick="TopNavBar.openNavItem('tutorials')" id="navbtn_tutorials"
+                title="Tutorials and References" role="button">
+                Tutorials
+                <i class="fa fa-caret-down" style="font-size: 15px" aria-hidden="true"></i>
+                <i class="fa fa-caret-up" style="display: none; font-size: 15px" aria-hidden="true"></i>
+            </a>
+
+            <a class="tnb-nav-btn w3-bar-item w3-button barex bar-item-hover w3-padding-16 ga-top ga-top-exc-and-quz "
+                href="/showExercices" id="navbtn_exercises" title="Exercises and Quizzes" role="button">
+                Exercises & Quizzes
+                <i class="fa fa-caret-down" style="font-size: 15px" aria-hidden="true"></i>
+                <i class="fa fa-caret-up" style="display: none; font-size: 15px" aria-hidden="true"></i>
+            </a>
+
+            <a class="tnb-nav-btn w3-bar-item w3-button barex bar-item-hover w3-padding-16 tnb-paid-service ga-top ga-top-cert-and-course"
+                href="/certificat" onclick="TopNavBar.openNavItem('certified')" id="navbtn_certified"
+                title="Certificates" role="button">
+                Certificates
+                <i class="fa fa-caret-down" style="font-size: 15px" aria-hidden="true"></i>
+                <i class="fa fa-caret-up" style="display: none; font-size: 15px" aria-hidden="true"></i>
+            </a>
+            <a href="/login"
+            class="user-anonymous tnb-login-btn w3-btn bar-item-hover w3-right ws-light-green ga-top ga-top-login"
+            style="background-color: #B0C4D1 !important;" title="Login to your account"
+            aria-label="Login to your account">
+            Log in
+        </a>
+        <a href="/register"
+            class="user-anonymous tnb-login-btn w3-bar-item w3-btn  bar-item-hover w3-right ws-light-green ga-top ga-top-login"
+            style="background-color: #075985 !important; color: #FFF !important;"
+            title="Login to your account" aria-label="Login to your account">
+            Sign Up
+        </a>
+
+        </div>
+
+    </aside>
+
 
     @yield('content')
+
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js'></script>
     <script src='https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js'></script>
-    <script  src="script.js"></script>
+    <script src="script.js"></script>
+    <script src="custom.js"></script>
+
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -404,6 +442,91 @@
 
 
 
+    <script>
+        const searchExo = document.getElementById('searchExo');
+        const searchExos = document.getElementById('afficheExerices');
+        fetchexoResults();
+
+        searchExo.addEventListener("keyup", function() {
+            fetchexoResults();
+        });
+
+        function fetchexoResults() {
+            console.log('Fetching results for exercise');
+            fetch(`/searhexo?search=${searchExo.value}`)
+                .then(res => res.text())
+                .then(data => {
+                    searchExos.innerHTML = data;
+                })
+                .catch(error => console.error('Erreur lors de la recherche:', error));
+        }
+    </script>
+    <style>
+        .navbar {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar a {
+            color: #FFF;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+
+        #navAside .fa-caret-down {
+            display: inline-block;
+        }
+
+        #navAside .fa-caret-up {
+            display: none;
+        }
+
+        .nav-aside-hidden {
+            display: none !important;
+        }
+    </style>
+
+    <script>
+        function toggleNavAside() {
+            var navAside = document.getElementById('navAside');
+            var navIconDown = document.querySelector('.tnb-menu-btn .fa-caret-down');
+            var navIconUp = document.querySelector('.tnb-menu-btn .fa-caret-up');
+
+            if (navAside.classList.contains('nav-aside-hidden')) {
+                console.log('navAside');
+                navAside.classList.remove('nav-aside-hidden');
+                navIconDown.style.display = 'none';
+                navIconUp.style.display = 'inline-block';
+            } else {
+                navAside.classList.add('nav-aside-hidden');
+                navIconDown.style.display = 'inline-block';
+                navIconUp.style.display = 'none';
+            }
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            var menuBtn = document.getElementById('menuBtn');
+            console.log(menuBtn);
+            menuBtn.addEventListener('click', toggleNavAside);
+        });
+    </script>
+
+
+         <script>
+        function showSearchField() {
+            var searchField = document.getElementById("searchField");
+            var closeBtn = document.getElementById("tnb-google-search-mobile-close");
+
+            if (searchField.style.display === "none") {
+                searchField.style.display = "block";
+                closeBtn.style.display = "block";
+            } else {
+                searchField.style.display = "none";
+                closeBtn.style.display = "none";
+            }
+        }
+
+    </script>
 
 </body>
 

@@ -26,6 +26,16 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/error', function () {
+    return view('404_error');
+});
+
+Route::get('/search', [AccueilController::class, 'search']);
+Route::get('/searchItem', [CertificatController::class, 'search']);
+Route::get('/searhexo', [QuestionController::class, 'search']);
+
+Route::get('/filter', [CertificatController::class, 'filter']);
+Route::get('/coursesFree', [AccueilController::class, 'index']);
 
 
 
@@ -41,12 +51,12 @@ Route::post('/submitAnswer', [QuestionController::class, 'submitAnswer'])->middl
 Route::post('/submitAnswerforCoursPay', [QuestionController::class, 'submitAnswerCoursPayant'])->middleware('jwt.check');
 
 Route::get('/showExercices', [QuestionController::class, 'showExercices']);
-Route::resource('exercice', ExerciceController::class);
-Route::resource('course', CourseController::class);
-Route::resource('users', UserController::class);
-Route::resource('contentCourse', ContentController::class);
-Route::resource('categories', CategoryController::class);
-Route::resource('quizzes', QuizzController::class);
+Route::resource('exercice', ExerciceController::class)->middleware('admin');;
+Route::resource('course', CourseController::class)->middleware('admin');;
+Route::resource('users', UserController::class)->middleware('admin');;
+Route::resource('contentCourse', ContentController::class)->middleware('admin');;
+Route::resource('categories', CategoryController::class)->middleware('admin');;
+Route::resource('quizzes', QuizzController::class)->middleware('admin');;
 Route::get('/quizzes/{quiz}', [QuizzController::class, 'cratequestions'])->name('quizzes.questions.create');
 Route::post('/addquestionQuiz', [QuizzController::class, 'add']);
 
@@ -59,12 +69,17 @@ Route::get('/certificat/{id}', [CertificatController::class, 'getCertificat']);
 Route::get('/checkout/{id}', [CertificatController::class, 'checkout'])->middleware('jwt.check');
 Route::get('/success/{course}', [CertificatController::class, 'success'])->name('success');
 Route::get('/quiz/{id}', [quizController::class, 'showQuiz']);
-Route::get('/dashboard', [DashController::class, 'index']);
+Route::get('/dashboard', [DashController::class, 'index'])->middleware('admin');;
 Route::get('/register', [AuthController::class, 'register'])->name('auth.register');
 Route::post('/register', [AuthController::class, 'create'])->name('auth.register.post');
 Route::get('/login', [AuthController::class, 'login'])->name('auth.login');
 Route::post('/login', [AuthController::class, 'authenticate'])->name('auth.login.post');
 Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
+
+Route::get('/forgetpassword', [AuthController::class, 'forgetpassword']);
+Route::post('/resetpasswordPost', [AuthController::class, 'sendemail']);
+Route::post('/newpasswordPost', [AuthController::class, 'addpassword']);
+Route::get('/resetwithemail/{token}', [AuthController::class, 'reset'])->name('resetwithemail');
 
 Route::get('/chapters', [ChapterController::class, 'chapter']);
 

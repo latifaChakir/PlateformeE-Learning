@@ -8,12 +8,26 @@ use Illuminate\Http\Request;
 
 class AccueilController extends Controller
 {
-   public function index (){
-    $courses=Course::where('price', 0)->get();
-    $categories=Category::all();
+   public function index (Request $request){
+    $courses=Course::where('price', 0)
+        ->paginate(4);
+    $categories = Category::all();
     $coursePayment = Course::whereNotNull('price')
     ->where('price', '<>', 0)
+    ->limit(3)
     ->get();
+
     return view('index', compact('courses','coursePayment','categories'));
    }
+
+   public function search(Request $request)
+   {
+       $searchTerm = $request->input('search');
+       $courses = Course::where('price', 0)
+              ->where('title', 'like', "%{$searchTerm}%")
+              ->get();
+       return view('search', compact('courses'));
+   }
+
+
 }

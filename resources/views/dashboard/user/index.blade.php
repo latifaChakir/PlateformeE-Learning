@@ -43,7 +43,9 @@
                                             <td>
                                                 <div class="d-flex px-2 py-1">
                                                     <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">{{ $user->name }}</h6>
+                                                        @if ($user->id_role == 2)
+                                                        <div class="d-flex "><a href="/userProgression"><i class="material-icons opacity-10">person</i></a><h6 class="mb-0 text-sm">{{ $user->name }}</h6></div>
+                                                        @else<h6 class="mb-0 text-sm">{{ $user->name }}</h6>@endif
                                                     </div>
                                                 </div>
                                             </td>
@@ -107,7 +109,7 @@
                                     @endforeach
                                 </select>
                             </div>
-                           
+
                             <div class="buttons justify-content-end">
                                 <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
                                 <input type="submit" class="btn btn-default" value="Save">

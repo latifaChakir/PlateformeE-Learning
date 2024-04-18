@@ -70,7 +70,7 @@
   width: 93px;
   display: none;
 }
-@media (max-width: 688px) {
+@media (max-width: 895px) {
   #top-nav-bar .tnb-menu-btn {
     display: block;
   }
@@ -86,11 +86,11 @@
   display: block;
 }
 @media (max-width: 954px) {
-  #top-nav-bar .tnb-desktop-nav #navbtn_certified {
+  /* #top-nav-bar .tnb-desktop-nav #navbtn_certified {
     display: none;
-  }
+  } */
 }
-@media (max-width: 688px) {
+@media (max-width: 894px) {
   #top-nav-bar .tnb-desktop-nav {
     display: none;
   }
@@ -336,18 +336,23 @@
 #top-nav-bar #tnb-google-search-container.tnb-mobile-active #tnb-google-search-mobile-action-btns #tnb-google-search-mobile-show {
   display: none;
 }
-@media (min-width: 689px) and (max-width: 828px) {
-  #top-nav-bar #tnb-google-search-container #tnb-google-search-inner-container {
-    display: none;
+@media (max-width: 890px){
+    #top-nav-bar #tnb-google-search-container #tnb-google-search-inner-container {
+    display: block;
   }
+}
+@media (min-width: 684px) and (max-width: 890px) {
+  /* #top-nav-bar #tnb-google-search-container #tnb-google-search-inner-container {
+    display: none;
+  } */
   #top-nav-bar #tnb-google-search-container #tnb-google-search-mobile-action-btns {
     display: block;
   }
 }
-@media (max-width: 616px) {
-  #top-nav-bar #tnb-google-search-container #tnb-google-search-inner-container {
+@media (max-width: 680px) {
+  /* #top-nav-bar #tnb-google-search-container #tnb-google-search-inner-container {
     display: none;
-  }
+  } */
   #top-nav-bar #tnb-google-search-container #tnb-google-search-mobile-action-btns {
     display: block;
   }
@@ -854,7 +859,7 @@
   padding-bottom: 60px;
   padding-top: 35px;
 }
-@media (max-width: 688px) {
+@media (max-width: 759px) {
   #top-nav-bar #dropdown-nav-outer-wrapper #dropdown-nav-inner-wrapper .dropdown-nav {
     display: none !important;
   }
@@ -913,7 +918,7 @@
   border-radius: 25px;
   margin-right: -39px;
   font-size: 16px;
-  
+
 }
 #top-nav-bar .tnb-right-section .tnb-profile-btn > .tnb-profile-icon {
   position: absolute;

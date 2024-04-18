@@ -72,4 +72,30 @@ class CertificatController extends Controller
     $course=Course::find($courseId);
     return redirect('/courses/'.$courseId);
 }
+
+public function search(Request $request)
+{
+    $searchTerm = $request->input('search');
+    $coursePayment = Course::whereNotNull('price')
+        ->where('price', '<>', 0)
+        ->where('title', 'like', "%{$searchTerm}%")
+        ->paginate(4);
+        if ($request->ajax()) {
+            return view('course_list', compact('coursePayment'))->render();
+        }
+    return view('user.search', compact('coursePayment'));
+}
+
+public function filter(Request $request)
+{
+    $checkedCategory = $request->input('category');
+    $coursePayment = Course::join('categories', 'courses.category_id', '=', 'categories.id')
+           ->where('price', '<>', 0)
+           ->where('categories.name', "{$checkedCategory}")
+           ->get();
+
+    return view('user.filter', compact('coursePayment'));
+}
+
+
 }

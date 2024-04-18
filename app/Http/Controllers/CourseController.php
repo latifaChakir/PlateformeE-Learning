@@ -46,7 +46,7 @@ class CourseController extends Controller
         $course->title = $request->title;
         $course->price = $request->price;
         $course->description = $request->description;
-        $course->id_categorie = $request->category_id;
+        $course->category_id = $request->category_id;
         $course->image_path = $uploadFileName;
 
         $course->save();
@@ -89,7 +89,7 @@ class CourseController extends Controller
         $course->title = $request->title;
         $course->description = $request->description;
         $course->price = $request->price;
-        $course->id_categorie = $request->category_id;
+        $course->category_id = $request->category_id;
 
         if($request->hasfile('image_path')){
             $uploadFileName = uniqid() . '.' . $request->file('image_path')->getClientOriginalExtension();

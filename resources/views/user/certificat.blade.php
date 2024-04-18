@@ -13,7 +13,7 @@
 					<!-- Search Widget -->
 					<div class="widget search p-0">
 						<div class="input-group">
-						    <input type="text" class="form-control main m-0" id="search"  placeholder="Search...">
+						    <input type="text" class="form-control main m-0" id="searchCours"  placeholder="Search...">
 						    <span class="input-group-addon"><i class="fa fa-search"></i></span>
 					    </div>
 					</div>
@@ -96,6 +96,7 @@
 	</div>
 </section>
 </div>
+@include('layouts.footer')
 
   <!-- JAVASCRIPTS -->
   <!-- jQuey -->
@@ -117,6 +118,8 @@
   <!-- Google Mapl -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
   <script type="text/javascript" src="/asset/plugins/google-map/gmap.js"></script>
+  {{-- <script src="custom.js"></script> --}}
+
 
 
   <style>

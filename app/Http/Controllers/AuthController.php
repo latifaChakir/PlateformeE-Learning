@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Cookie;
 use \Firebase\JWT\JWT;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
@@ -69,6 +71,53 @@ class AuthController extends Controller
             return redirect('/')->withCookie($cookie);
         }
 
+    }
+
+    public function logout(Request $request){
+        $response = redirect('/')->withCookie(Cookie::forget('jwt_token'));
+        return $response;
+    }
+
+    public function forgetpassword(){
+        return view('Auth.resetpassword');
+    }
+
+    public function sendemail(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+        ]);
+
+        $token = Str::random(60);
+        User::where('email', $request->email)->update(['remember_token' => $token]);
+
+        $resetLink = route('resetwithemail', ['token' => $token]);
+
+        $success = Mail::raw('To reset your password, click on the following link: ' . $resetLink, function ($message) use ($request) {
+            $message->to($request->email)
+                   ->subject('Password Reset Link');
+        });
+
+        if ($success) {
+            return back()->with('status', 'Password reset link sent.');
+        } else {
+            return back()->withErrors(['email' => 'Failed to send reset link.']);
+        }
+    }
+    public function reset($token){
+        return view('Auth.resetpass',compact('token'));
+    }
+    public function addpassword(Request $request){
+        $request->validate([
+            'password' => 'required',
+            'token' => 'required',
+        ]);
+        User::where('remember_token', $request->token)->update([
+            'password' => Hash::make($request->password),
+            'remember_token' => null,
+        ]);
+
+        return redirect('/login')->with('status', 'Your password has been reset successfully. Please log in with your new password.');
     }
 
 
