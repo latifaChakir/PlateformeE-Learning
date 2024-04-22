@@ -70,9 +70,8 @@
             </a>
             <nav class="tnb-desktop-nav w3-bar-item nav-toggle">
                 <a class="tnb-nav-btn w3-bar-item w3-button barex bar-item-hover w3-padding-16 ga-top ga-top-tut-and-ref"
-                    href="javascript:void(0)" onclick="TopNavBar.openNavItem('tutorials')" id="navbtn_tutorials"
-                    title="Tutorials and References" role="button">
-                    Tutorials
+                    href="/Contacts" id="navbtn_tutorials" title="Contact Us" role="button">
+                    Contact Us
                     <i class="fa fa-caret-down" style="font-size: 15px" aria-hidden="true"></i>
                     <i class="fa fa-caret-up" style="display: none; font-size: 15px" aria-hidden="true"></i>
                 </a>
@@ -133,22 +132,38 @@
                         </svg>
                     </div>
 
-                    <div id="tnb-google-search-mobile-close" class="tnb-button" role="button" aria-label="Close search field"
-                        style="display: none;">
+                    <div id="tnb-google-search-mobile-close" class="tnb-button" role="button"
+                        aria-label="Close search field" style="display: none;">
                         <i>&times;</i>
                     </div>
                 </div>
             </div>
 
-
+            @php
+                $isLoggedIn = false;
+                if (Cookie::has('jwt_token')) {
+                    $isLoggedIn = true;
+                }
+            @endphp
 
             <div class="tnb-right-section">
-                <a href="/login"
-                    class="user-anonymous tnb-login-btn w3-btn bar-item-hover w3-right ws-light-green ga-top ga-top-login"
-                    style="background-color: #B0C4D1 !important;" title="Login to your account"
-                    aria-label="Login to your account">
-                    Log in
-                </a>
+                @if ($isLoggedIn)
+                    <a href="/logout"
+                        class="user-anonymous tnb-login-btn w3-btn bar-item-hover w3-right ws-light-green ga-top ga-top-login"
+                        style="background-color: #B0C4D1 !important;" title="Logout from your account"
+                        aria-label="Logout from your account">
+                        Log Out
+                    </a>
+                @else
+                    <a href="/login"
+                        class="user-anonymous tnb-login-btn w3-btn bar-item-hover w3-right ws-light-green ga-top ga-top-login"
+                        style="background-color: #B0C4D1 !important;" title="Login to your account"
+                        aria-label="Login to your account">
+                        Log in
+                    </a>
+                @endif
+
+
                 <a href="/register"
                     class="user-anonymous tnb-login-btn w3-bar-item w3-btn  bar-item-hover w3-right ws-light-green ga-top ga-top-login"
                     style="background-color: #075985 !important; color: #FFF !important;"
@@ -377,17 +392,17 @@
                 <i class="fa fa-caret-up" style="display: none; font-size: 15px" aria-hidden="true"></i>
             </a>
             <a href="/login"
-            class="user-anonymous tnb-login-btn w3-btn bar-item-hover w3-right ws-light-green ga-top ga-top-login"
-            style="background-color: #B0C4D1 !important;" title="Login to your account"
-            aria-label="Login to your account">
-            Log in
-        </a>
-        <a href="/register"
-            class="user-anonymous tnb-login-btn w3-bar-item w3-btn  bar-item-hover w3-right ws-light-green ga-top ga-top-login"
-            style="background-color: #075985 !important; color: #FFF !important;"
-            title="Login to your account" aria-label="Login to your account">
-            Sign Up
-        </a>
+                class="user-anonymous tnb-login-btn w3-btn bar-item-hover w3-right ws-light-green ga-top ga-top-login"
+                style="background-color: #B0C4D1 !important;" title="Login to your account"
+                aria-label="Login to your account">
+                Log in
+            </a>
+            <a href="/register"
+                class="user-anonymous tnb-login-btn w3-bar-item w3-btn  bar-item-hover w3-right ws-light-green ga-top ga-top-login"
+                style="background-color: #075985 !important; color: #FFF !important;" title="Login to your account"
+                aria-label="Login to your account">
+                Sign Up
+            </a>
 
         </div>
 
@@ -512,7 +527,7 @@
     </script>
 
 
-         <script>
+    <script>
         function showSearchField() {
             var searchField = document.getElementById("searchField");
             var closeBtn = document.getElementById("tnb-google-search-mobile-close");
@@ -525,9 +540,7 @@
                 closeBtn.style.display = "none";
             }
         }
-
     </script>
-
 </body>
 
 </html>

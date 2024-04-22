@@ -5,7 +5,7 @@
     <header>
 
     </header>
-    <div class='w3-main w3-light-grey' id='belowtopnav' >
+    <div class='w3-main w3-light-grey' id='belowtopnav'>
 
         <div class='w3-row w3-white'>
 
@@ -69,7 +69,7 @@
 
                 <!-- About Start -->
                 <div class="container-xxl py-5">
-                    <div class="container" >
+                    <div class="container">
                         <div class="row g-5">
                             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
                                 <div class="position-relative h-100">
@@ -273,12 +273,65 @@
                 <!-- Courses End -->
 
             </div>
-            @include('layouts.footer')
 
+            <div class="container-xxl py-5 mt-5">
+                <div class="container">
+                    <div class="text-center">
+                        <h6 class="section-title bg-white text-center text-primary px-3">Testimonial</h6>
+                        <h1 class="mb-5">Our Students Say!</h1>
+                    </div>
+                    <div id="messageCarouselContainer" class="carousel-container">
+                        <div class="row g-10" style="width: 200%; height:250px">
+                            @foreach ($messages as $message)
+                                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s"
+                                    style="display: inline-block;">
+                                    <div class="service-item text-center pt-3">
+                                        <div class="p-4">
+                                            <img class="border rounded-circle p-2 mx-auto mb-3"
+                                                src="/images/{{ $message->image_path }}"
+                                                style="width: 80px; height: 80px;">
+                                            <h5 class="mb-3">{{ $message->name }}</h5>
+                                            <p>{{ $message->message }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            @include('layouts.footer')
             <style>
                 button:hover {
                     background-color: #06BBCC;
                 }
-            </style>
-        @endsection
+                .carousel-container {
+                    overflow-x: hidden;
+                    overflow-y: hidden;
+                }
 
+                .carousel-container.show-scrollbar {
+                    overflow-x: auto;
+                    overflow-y: auto;
+                }
+            </style>
+
+            <script>
+                var carouselContainer = document.getElementById('messageCarouselContainer');
+
+                carouselContainer.addEventListener('mouseenter', function() {
+                    this.classList.add('show-scrollbar');
+                });
+
+                carouselContainer.addEventListener('mouseleave', function() {
+                    this.classList.remove('show-scrollbar');
+                });
+
+                setInterval(function() {
+                    var container = document.getElementById('messageCarouselContainer');
+                    container.scrollLeft += 100;
+                }, 1000);
+            </script>
+        @endsection

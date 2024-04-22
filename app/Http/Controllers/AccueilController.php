@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Course;
+use App\Models\Message;
 use Illuminate\Http\Request;
 
 class AccueilController extends Controller
@@ -16,8 +17,12 @@ class AccueilController extends Controller
     ->where('price', '<>', 0)
     ->limit(3)
     ->get();
+    $messages=Message::where('is_published', 'approved')->get();
 
-    return view('index', compact('courses','coursePayment','categories'));
+
+    // dd($messages);
+
+    return view('index', compact('courses','coursePayment','categories','messages'));
    }
 
    public function search(Request $request)

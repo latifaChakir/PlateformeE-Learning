@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CertificatController;
 use App\Http\Controllers\ChapterController;
+use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DashController;
@@ -82,4 +83,12 @@ Route::post('/newpasswordPost', [AuthController::class, 'addpassword']);
 Route::get('/resetwithemail/{token}', [AuthController::class, 'reset'])->name('resetwithemail');
 
 Route::get('/chapters', [ChapterController::class, 'chapter']);
+Route::get('Contacts', [ContactsController::class, 'contact']);
+Route::get('Commantaires', [ContactsController::class, 'commantaire']);
+Route::get('showDetail/{messageId}', [ContactsController::class, 'showCommantaire']);
+Route::get('refusedComment/{messageId}', [ContactsController::class, 'refusedCommantaire']);
+Route::get('AcceptComment/{messageId}', [ContactsController::class, 'AcceptComment']);
+
+Route::post('/sendMessage', [ContactsController::class, 'SendMessage']);
+
 
