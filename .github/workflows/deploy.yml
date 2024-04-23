@@ -10,12 +10,12 @@ jobs:
     steps:
     - name: 🚚 Get latest code
       uses: actions/checkout@v2.3.2
-    - name: 📂 Sync files
+    - name: 📂 Sync files into hostinger
       uses: SamKirkland/FTP-Deploy-Action@4.0.0
       with:
-        server: 62.72.37.105
+        server: 82.197.80.104
         username: u820736800.portfolio-chakir.coders-strike.tech
-        password: Latifa@2001
+        password: Latifa_2024@
         server-dir: /
     - name: 🚀 Install PHP and Composer
       uses: shivammathur/setup-php@v2
