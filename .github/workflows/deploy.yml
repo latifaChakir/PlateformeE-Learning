@@ -15,7 +15,7 @@ jobs:
       with:
         server: 62.72.37.105
         username: u820736800.portfolio-chakir.coders-strike.tech
-        password: Latifa@2001
+        password: Latifa_2024@
         server-dir: /
     - name: 🚀 Install PHP and Composer
       uses: shivammathur/setup-php@v2
