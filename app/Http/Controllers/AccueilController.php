@@ -20,7 +20,7 @@ class AccueilController extends Controller
     $messages=Message::where('is_published', 'approved')->get();
 
 
-    // dd($messages);
+    dd($messages);
 
     return view('index', compact('courses','coursePayment','categories','messages'));
    }
