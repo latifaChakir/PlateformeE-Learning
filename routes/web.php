@@ -10,6 +10,7 @@ use App\Http\Controllers\ContentController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DashController;
 use App\Http\Controllers\ExerciceController;
+use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\quizController;
@@ -92,3 +93,5 @@ Route::get('AcceptComment/{messageId}', [ContactsController::class, 'AcceptComme
 Route::post('/sendMessage', [ContactsController::class, 'SendMessage']);
 
 
+Route::get('/auth/google', [GoogleAuthController::class, 'redirect'])->name('google-auth');
+Route::get('/auth/google/call-back', [GoogleAuthController::class, 'callbackGoogle'])->name('auth.logout');

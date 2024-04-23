@@ -27,6 +27,7 @@
     <link id="pagestyle" href="/assets/css/material-dashboard.css?v=3.0.0" rel="stylesheet" />
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
 
+
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
@@ -45,7 +46,8 @@
         <div class="collapse navbar-collapse  w-auto  max-height-vh-100" id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link text-dark {{ Request::is('/dashboard') ? 'active bg-gradient-primary' : '' }}" href="/dashboard">
+                    <a class="nav-link text-dark {{ str_contains(url()->current(), '/dashboard') ? 'active bg-gradient-primary' : '' }}"
+                        href="/dashboard">
                         <div class="text-dark text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">dashboard</i>
                         </div>
@@ -53,7 +55,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark {{ Request::is('categories') ? 'active bg-gradient-primary' : '' }}" href="{{ route('categories.index') }}">
+                    <a class="nav-link text-dark {{ Request::is('categories') ? 'active bg-gradient-primary' : '' }}"
+                        href="{{ route('categories.index') }}">
                         <div class="text-dark text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa fa-folder"></i>
                         </div>
@@ -61,7 +64,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark {{ Request::is('course') ? 'active bg-gradient-primary' : '' }}" href="{{ route('course.index') }}">
+                    <a class="nav-link text-dark {{ Request::is('course') ? 'active bg-gradient-primary' : '' }}"
+                        href="{{ route('course.index') }}">
                         <div class="text-dark text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa fa-book"></i>
                         </div>
@@ -69,7 +73,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark {{ Request::is('contentCourse*') ? 'active bg-gradient-primary' : '' }}" href="{{ route('contentCourse.index') }}">
+                    <a class="nav-link text-dark {{ Request::is('contentCourse*') ? 'active bg-gradient-primary' : '' }}"
+                        href="{{ route('contentCourse.index') }}">
                         <div class="text-dark text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa fa-book-open"></i>
                         </div>
@@ -77,7 +82,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark {{ Request::is('exercice*') ? 'active bg-gradient-primary' : '' }}" href="{{ route('exercice.index') }}">
+                    <a class="nav-link text-dark {{ Request::is('exercice*') ? 'active bg-gradient-primary' : '' }}"
+                        href="{{ route('exercice.index') }}">
                         <div class="text-dark text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa fa-pencil"></i>
                         </div>
@@ -85,7 +91,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark {{ Request::is('quizzes*') ? 'active bg-gradient-primary' : '' }}" href="{{ route('quizzes.index') }}">
+                    <a class="nav-link text-dark {{ Request::is('quizzes*') ? 'active bg-gradient-primary' : '' }}"
+                        href="{{ route('quizzes.index') }}">
                         <div class="text-dark text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa fa-question-circle"></i>
                         </div>
@@ -94,7 +101,8 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link text-dark{{ Request::is('users*') ? 'active bg-gradient-primary' : '' }}" href="{{ route('users.index') }}">
+                    <a class="nav-link text-dark{{ Request::is('users*') ? 'active bg-gradient-primary' : '' }}"
+                        href="{{ route('users.index') }}">
                         <div class="text-dark text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">person</i>
                         </div>
@@ -102,7 +110,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark {{ Request::is('/Commantaires') ? 'active bg-gradient-primary' : '' }}" href="/Commantaires">
+                    <a class="nav-link text-dark {{ str_contains(url()->current(), '/Commantaires') ? 'active bg-gradient-primary' : '' }}"
+                        href="/Commantaires">
                         <div class="text-dark text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">comment</i>
                         </div>
@@ -120,7 +129,8 @@
             <div class="container-fluid py-1 px-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-                        <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a>
+                        <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark"
+                                href="javascript:;">Pages</a>
                         </li>
                         <li class="breadcrumb-item text-sm text-dark " aria-current="page">Tables</li>
                     </ol>
@@ -246,70 +256,7 @@
         </nav>
         @yield('content')
     </main>
-    <div class="fixed-plugin">
-        <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
-            <i class="material-icons py-2">settings</i>
-        </a>
-        <div class="card shadow-lg">
-            <div class="card-header pb-0 pt-3">
-                <div class="float-start">
-                    <h5 class="mt-3 mb-0">Material UI Configurator</h5>
-                    <p>See our dashboard options.</p>
-                </div>
-                <div class="float-end mt-4">
-                    <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
-                        <i class="material-icons">clear</i>
-                    </button>
-                </div>
-                <!-- End Toggle Button -->
-            </div>
-            <hr class="horizontal dark my-1">
-            <div class="card-body pt-sm-3 pt-0">
-                <!-- Sidebar Backgrounds -->
-                <div>
-                    <h6 class="mb-0">Sidebar Colors</h6>
-                </div>
-                <a href="javascript:void(0)" class="switch-trigger background-color">
-                    <div class="badge-colors my-2 text-start">
-                        <span class="badge filter bg-gradient-primary active" data-color="primary"
-                            onclick="sidebarColor(this)"></span>
-                        <span class="badge filter bg-gradient-dark" data-color="dark"
-                            onclick="sidebarColor(this)"></span>
-                        <span class="badge filter bg-gradient-info" data-color="info"
-                            onclick="sidebarColor(this)"></span>
-                        <span class="badge filter bg-gradient-success" data-color="success"
-                            onclick="sidebarColor(this)"></span>
-                        <span class="badge filter bg-gradient-warning" data-color="warning"
-                            onclick="sidebarColor(this)"></span>
-                        <span class="badge filter bg-gradient-danger" data-color="danger"
-                            onclick="sidebarColor(this)"></span>
-                    </div>
-                </a>
-                <!-- Sidenav Type -->
-                <div class="mt-3">
-                    <h6 class="mb-0">Sidenav Type</h6>
-                    <p class="text-sm">Choose between 2 different sidenav types.</p>
-                </div>
-                <div class="d-flex">
-                    <button class="btn bg-gradient-dark px-3 mb-2 active" data-class="bg-gradient-dark"
-                        onclick="sidebarType(this)">Dark</button>
-                    <button class="btn bg-gradient-dark px-3 mb-2 ms-2" data-class="bg-transparent"
-                        onclick="sidebarType(this)">Transparent</button>
-                    <button class="btn bg-gradient-dark px-3 mb-2 ms-2" data-class="bg-white"
-                        onclick="sidebarType(this)">White</button>
-                </div>
-                <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
-                <!-- Navbar Fixed -->
-                <div class="mt-3 d-flex">
-                    <h6 class="mb-0">Navbar Fixed</h6>
-                    <div class="form-check form-switch ps-0 ms-auto my-auto">
-                        <input class="form-check-input mt-1 ms-auto" type="checkbox" id="navbarFixed"
-                            onclick="navbarFixed(this)">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <!--   Core JS Files   -->
     <script src="../assets/js/core/popper.min.js"></script>
     <script src="../assets/js/core/bootstrap.min.js"></script>
@@ -326,28 +273,26 @@
     </script>
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../assets/js/material-dashboard.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-
-
-
+    {{-- data-table --}}
     <script>
         $(document).ready(function() {
             console.log('helo');
             $('#myTable').DataTable();
         });
     </script>
-
+    {{-- end data-table --}}
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    {{-- Summernote --}}
     <script>
         $(document).ready(function() {
             $('#summernote').summernote({
@@ -367,6 +312,7 @@
 
         });
     </script>
+    {{-- end summernote code --}}
     <script>
         $(document).ready(function() {
             $('.truncated-content').click(function() {
@@ -377,13 +323,50 @@
         });
     </script>
 
-<style>
-    .active {
-         background-color: #075985!important;
-         color: white!important;
+    {{-- Statistic --}}
+    @if (str_contains(url()->current(), '/dashboard'))
+        <script>
+            $(document).ready(function() {
+                var $lineChart = $('#line-chart');
 
-    }
-</style>
+                var lineChart = new Chart($lineChart, {
+                    type: 'line',
+                    data: {
+                        labels: ['Categories', 'Users', 'Courses Free', 'Courses with Certificate'],
+                        datasets: [{
+                            label: 'Statistics',
+                            data: [{{ $categories }}, {{ $users }}, {{ $coursesfree }},
+                                {{ $coursePayment }}
+                            ],
+                            backgroundColor: 'transparent',
+                            borderColor: '#075985',
+                            pointBorderColor: '#075985',
+                            pointBackgroundColor: '#075985',
+                            fill: false
+                        }]
+                    },
+                    options: {
+                        maintainAspectRatio: false,
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+            });
+        </script>
+    @endif
+    {{-- end statistic --}}
+    <style>
+        .active {
+            background-color: #075985 !important;
+            color: white !important;
+
+        }
+    </style>
 </body>
 
 </html>

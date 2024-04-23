@@ -278,12 +278,12 @@
                 <div class="container">
                     <div class="text-center">
                         <h6 class="section-title bg-white text-center text-primary px-3">Testimonial</h6>
-                        <h1 class="mb-5">Our Students Say!</h1>
+                        <h1 class="mb-5">Our Users Say!</h1>
                     </div>
                     <div id="messageCarouselContainer" class="carousel-container">
-                        <div class="row g-10" style="width: 200%; height:250px">
+                        <div class="row g-4" style="width: 200%; height:250px">
                             @foreach ($messages as $message)
-                                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s"
+                                <div class="col-lg-2 col-sm-6 wow fadeInUp" data-wow-delay="0.1s"
                                     style="display: inline-block;">
                                     <div class="service-item text-center pt-3">
                                         <div class="p-4">
@@ -300,7 +300,6 @@
                     </div>
                 </div>
             </div>
-
 
             @include('layouts.footer')
             <style>
@@ -331,7 +330,7 @@
 
                 setInterval(function() {
                     var container = document.getElementById('messageCarouselContainer');
-                    container.scrollLeft += 50;
-                }, 2000);
+                    container.scrollLeft += 30;
+                }, 3000);
             </script>
         @endsection
