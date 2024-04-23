@@ -71,7 +71,7 @@
                                             </td>
                                             <td class="align-middle">
                                                 <div class="buttons">
-                                                    <a class="btn btn-primary"
+                                                    <a class="btn bg-grade-primary"
                                                         href="{{ route('course.edit', $course->id) }}">Edit</a>
                                                     <form action="{{ route('course.destroy', $course->id) }}" method="post">
                                                         @csrf

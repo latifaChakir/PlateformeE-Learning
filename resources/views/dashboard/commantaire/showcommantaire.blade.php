@@ -17,7 +17,7 @@
                   <div class="card-body">
                     <h4 class="card-title">{{ $message->name }}</h4>
                     <p class="card-text">{{ $message->message }}</p>
-                    <a href="/Commantaires" class="btn bg-gradient-primary">return</a>
+                    <a href="/Commantaires" class="btn bg-gradient-primary">Go Back</a>
                   </div>
                 </div>
 

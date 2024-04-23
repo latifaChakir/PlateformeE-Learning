@@ -76,7 +76,7 @@
                                             </td>
                                             <td class="align-middle">
                                                 <div class="buttons">
-                                                    <a class="btn btn-primary" href="{{route('quizzes.edit',$quiz->id)}}">Edit</a>
+                                                    <a class="btn bg-grade-primary" href="{{route('quizzes.edit',$quiz->id)}}">Edit</a>
                                                     <form action="{{route('quizzes.destroy',$quiz->id)}}" method="post">
                                                         @csrf
                                                         @method('DELETE')

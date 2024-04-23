@@ -73,7 +73,7 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'image_path' => 'required|image|mimes:jpeg,png,jpg,svg,gif|max:2048',
+            'image_path' => 'image|mimes:jpeg,png,jpg,svg,gif|max:2048',
         ]);
 
         $category = Category::find($id);

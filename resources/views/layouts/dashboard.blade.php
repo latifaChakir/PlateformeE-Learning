@@ -104,7 +104,7 @@
                 <li class="nav-item">
                     <a class="nav-link text-dark {{ Request::is('/Commantaires') ? 'active bg-gradient-primary' : '' }}" href="/Commantaires">
                         <div class="text-dark text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">person</i>
+                            <i class="material-icons opacity-10">comment</i>
                         </div>
                         <span class="nav-link-text ms-1">Commantaires</span>
                     </a>

@@ -47,13 +47,7 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                            {{-- <td>
-                                                <div class="d-flex px-2 py-1">
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <p class="text-sm text-secondary mb-0"> {!! Str::limit($course->description, 70, '...') !!}</p>
-                                                    </div>
-                                                </div>
-                                            </td> --}}
+
 
                                             <td>
                                                 <div class="d-flex px-2 py-1">
@@ -64,7 +58,7 @@
                                             </td>
                                             <td class="align-middle">
                                                 <div class="buttons">
-                                                    <a class="btn btn-primary"
+                                                    <a class="btn bg-grade-primary"
                                                         href="{{ route('categories.edit', $category->id) }}">Edit</a>
                                                     <form action="{{ route('categories.destroy', $category->id) }}" method="post">
                                                         @csrf

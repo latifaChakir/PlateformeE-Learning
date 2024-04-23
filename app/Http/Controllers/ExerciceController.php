@@ -77,11 +77,13 @@ class ExerciceController extends Controller
             'chapter' => 'required',
             'question' => 'required',
             'answer' => 'required',
+            'title' =>'required',
         ]);
         $question =Questions::find($id);
         $question->chapter_id=$request->chapter;
         $question->question_text=$request->question;
         $question->answer=$request->answer;
+        $question->title=$request->title;
         $question->save();
         return redirect('/exercice');
     }

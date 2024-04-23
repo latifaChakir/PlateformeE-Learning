@@ -102,7 +102,7 @@ class QuizzController extends Controller
         $quiz->limited_time = $validatedData['limited_time'];
         $quiz->save();
 
-        return redirect('/quizzes');
+        return redirect()->route('quizzes.questions.create', ['quiz' => $quiz->id]);
     }
     /**
      * Remove the specified resource from storage.
@@ -124,50 +124,55 @@ class QuizzController extends Controller
 
     public function add(Request $request)
     {
-            // Validation des données
-            $validatedData = $this->validate($request, [
-                'quiz_id' => 'required',
-                'questions' => 'required|array',
-                'questions.*' => 'required|string|max:255',
-                'options' => 'required|array',
-                'options.*' => 'required|array|size:4',
-                'options.*.*' => 'required|string|max:255',
-                'correct_answers' => 'required|array',
-                'correct_answers.*' => 'required|in:a,b,c,d',
-            ]);
+        // Validation des données
+        $validatedData = $this->validate($request, [
+            'quiz_id' => 'required',
+            'questions' => 'required|array',
+            'questions.*' => 'required|string|max:255',
+            'options' => 'required|array',
+            'options.*' => 'required|array|size:4',
+            'options.*.*' => 'required|string|max:255',
+            'correct_answers' => 'required|array',
+            'correct_answers.*' => 'required|in:a,b,c,d',
+        ]);
 
-            foreach ($validatedData['questions'] as $index => $questionText) {
-                $question = new QuizQuestion();
-                $question->quiz_id = $validatedData['quiz_id'];
-                $question->text_question = $questionText;
-                $question->save();
+        $existingQuestions = QuizQuestion::where('quiz_id', $validatedData['quiz_id'])->get();
 
-                $questionId = $question->id;
+        foreach ($existingQuestions as $question) {
+            $question->options()->delete(); // Supprimer les options associées à cette question
+            $question->delete(); // Supprimer la question
+        }
 
-                // Vérifier si des options sont fournies pour cette question
-                if (isset($validatedData['options'][$index])) {
-                    $questionOptions = $validatedData['options'][$index];
-                    $questionCorrectAnswer = $validatedData['correct_answers'][$index];
+        // Ajouter les nouvelles questions
+        foreach ($validatedData['questions'] as $index => $questionText) {
+            $question = new QuizQuestion();
+            $question->quiz_id = $validatedData['quiz_id'];
+            $question->text_question = $questionText;
+            $question->save();
 
-                    foreach ($questionOptions as $optionKey => $optionText) {
-                        if (in_array($optionKey, ['a', 'b', 'c', 'd'])) {
-                            $trueOption = $questionCorrectAnswer === $optionKey ? 1 : 0;
+            $questionId = $question->id;
 
-                            $quizOption = new QuizOption();
-                            $quizOption->quiz_qst = $questionId;
-                            $quizOption->option_text = $optionText;
-                            $quizOption->true_option = $trueOption;
-                            $quizOption->save();
-                        }
+            if (isset($validatedData['options'][$index])) {
+                $questionOptions = $validatedData['options'][$index];
+                $questionCorrectAnswer = $validatedData['correct_answers'][$index];
+
+                foreach ($questionOptions as $optionKey => $optionText) {
+                    if (in_array($optionKey, ['a', 'b', 'c', 'd'])) {
+                        $trueOption = $questionCorrectAnswer === $optionKey ? 1 : 0;
+
+                        $quizOption = new QuizOption();
+                        $quizOption->quiz_qst = $questionId;
+                        $quizOption->option_text = $optionText;
+                        $quizOption->true_option = $trueOption;
+                        $quizOption->save();
                     }
-                } else {
-                    logger()->warning('No options provided for question: ' . $questionText);
                 }
+            } else {
+                logger()->warning('No options provided for question: ' . $questionText);
             }
+        }
 
-
-            return redirect()->route('quizzes.index')->with('success', 'Questions added successfully!');
-
+        return redirect()->route('quizzes.index')->with('success', 'Questions added successfully!');
     }
 
 

@@ -41,7 +41,6 @@ class CourseController extends Controller
         $uploadFileName = uniqid() . '.' . $request->file('image_path')->getClientOriginalExtension();
         $request->file('image_path')->move($uploadDir, $uploadFileName);
 
-
         $course = new Course();
         $course->title = $request->title;
         $course->price = $request->price;

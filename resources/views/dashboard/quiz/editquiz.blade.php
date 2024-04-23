@@ -46,7 +46,7 @@
 
                     </div>
                     <div class="buttons justify-content-end">
-                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                        <a href="/quizzes"><input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel"></a>
                         <input type="submit" class="btn btn-default" value="Save">
                     </div>
                 </div>

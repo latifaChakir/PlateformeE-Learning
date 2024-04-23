@@ -331,7 +331,7 @@
 
                 setInterval(function() {
                     var container = document.getElementById('messageCarouselContainer');
-                    container.scrollLeft += 100;
-                }, 1000);
+                    container.scrollLeft += 50;
+                }, 2000);
             </script>
         @endsection

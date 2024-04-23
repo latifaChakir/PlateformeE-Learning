@@ -17,8 +17,8 @@
                         </div>
                     </div>
                     <div class="card-body px-0 pb-3">
-                        <div class="table-responsive p-0">
-                            <table class="table align-items-center mb-0">
+                        <div class="table-responsive p-3">
+                            <table class="align-items-center mb-2" id="myTable">
                                 <thead>
                                     <tr>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" style="width: 250px">
@@ -57,7 +57,7 @@
                                             <p class="text-xs font-weight-bold mb-0">{!! Str::limit($message->message, 70, '...') !!}</p>
                                         </td>
                                         <td class="align-middle text-center text-sm">
-                                            <a href="/showDetail/{{ $message->id }}"><span class="badge badge-sm bg-gradient-success">Details</span></a>
+                                            <a href="/showDetail/{{ $message->id }}"><span class="badge badge-sm bg-grade-primary">Details</span></a>
                                             <a href="/refusedComment/{{ $message->id }}"><span class="badge badge-sm bg-gradient-danger">Refused</span></a>
                                             <a href="/AcceptComment/{{ $message->id }}"><span class="badge badge-sm bg-gradient-success">Accepted</span></a>
 
@@ -66,7 +66,7 @@
                                     </tr>
                                     @endforeach
                                 </tbody>
-                            </table>
+                            </tableclass=>
                         </div>
                     </div>
                 </div>

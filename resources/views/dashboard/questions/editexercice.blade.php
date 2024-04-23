@@ -31,6 +31,11 @@
                             <!-- Options-->
                         </select>
                     </div>
+                    <div class="mb-3 mx-3">
+                        <label class="form-label">Exerice Title</label>
+                        <input type="text" class="form-control task-desc" name="title" value="{{ $exercice->title }}">
+
+                    </div>
                     <div class="form-group">
                         <label for="question">Question :</label>
                         <textarea id="summernote" name="question" id="question" class="form-control custom-select">{{ $exercice->question_text }}</textarea>

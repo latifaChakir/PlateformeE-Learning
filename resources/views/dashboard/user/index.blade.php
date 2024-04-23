@@ -44,7 +44,7 @@
                                                 <div class="d-flex px-2 py-1">
                                                     <div class="d-flex flex-column justify-content-center">
                                                         @if ($user->id_role == 2)
-                                                        <div class="d-flex "><a href="/userProgression"><i class="material-icons opacity-10">person</i></a><h6 class="mb-0 text-sm">{{ $user->name }}</h6></div>
+                                                        <div class="d-flex "><a href="/userProfile"><i class="material-icons opacity-10">person</i></a><h6 class="mb-0 text-sm">{{ $user->name }}</h6></div>
                                                         @else<h6 class="mb-0 text-sm">{{ $user->name }}</h6>@endif
                                                     </div>
                                                 </div>
@@ -66,7 +66,7 @@
                                             </td>
                                             <td class="align-middle">
                                                 <div class="buttons">
-                                                    <a class="btn btn-primary"
+                                                    <a class="btn bg-grade-primary"
                                                         href="{{ route('users.edit', $user->id) }}">Edit</a>
                                                     <form action="{{ route('users.destroy', $user->id) }}" method="post">
                                                         @csrf
