@@ -72,11 +72,11 @@
 
                   <div class="input-group input-group-outline my-3">
                       <label class="form-label"></label>
-                      <input type="email" class="form-control" name="email" required placeholder="Email" value="{{ old('email') }}">
+                      <input type="text" class="form-control" name="email"  placeholder="Email" value="{{ old('email') }}">
                   </div>
                   <div class="input-group input-group-outline mb-3">
                       <label class="form-label"></label>
-                      <input type="password" class="form-control" name="password" required placeholder="Password" value="{{ old('password') }}">
+                      <input type="password" class="form-control" name="password"  placeholder="Password" value="{{ old('password') }}">
                   </div>
                   <div class="text-center">
                       <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">Sign in</button>
@@ -96,7 +96,37 @@
 
     </div>
   </main>
-  <!--   Core JS Files   -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector('.text-start');
+
+        form.addEventListener("submit", function (event) {
+            const emailInput = form.querySelector('input[name="email"]');
+            const passwordInput = form.querySelector('input[name="password"]');
+
+            if (!validateEmail(emailInput.value)) {
+                alert("Veuillez entrer une adresse email valide.");
+                event.preventDefault();
+                return;
+            }
+
+            if (!validatePassword(passwordInput.value)) {
+                alert("Le mot de passe doit contenir au moins un caractère spécial et ne doit pas contenir d'espaces.");
+                event.preventDefault();
+                return;
+            }
+        });
+        function validateEmail(email) {
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return regex.test(email);
+        }
+        function validatePassword(password) {
+            const regex = /^[\w@!#$%^&*()_+{}\[\]:;<>,.?~\\/-]+$/;
+            return regex.test(password);
+        }
+    });
+</script>
+
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
   <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
@@ -112,7 +142,6 @@
   </script>
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
-  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/material-dashboard.min.js?v=3.0.0"></script>
 </body>
 

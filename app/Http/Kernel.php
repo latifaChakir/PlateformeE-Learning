@@ -49,6 +49,9 @@ class Kernel extends HttpKernel
         'admin' => [
             \App\Http\Middleware\AdminMiddleware::class,
         ],
+        'checkCoursPayment' =>[
+            \App\Http\Middleware\CheckCoursPayant::class,
+        ],
     ];
 
     /**

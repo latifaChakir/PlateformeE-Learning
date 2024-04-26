@@ -25,4 +25,4 @@ jobs:
           tools: composer:v2
 
     - name: 🛠️ Install Composer dependencies
-      run:  composer update --ignore-platform-req=ext-mongodb
+      run:  composer update 

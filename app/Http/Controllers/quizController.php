@@ -32,6 +32,11 @@ class quizController extends Controller
         $decodedUser = $request->decoded_user;
         $userId = $decodedUser->id;
 
+        $existingResponses = UserResponse::where('user_id', $userId)->get();
+        if ($existingResponses->isNotEmpty()) {
+            UserResponse::where('user_id', $userId)->delete();
+        }
+
         foreach ($answers as $questionId => $optionId) {
             $response = new UserResponse();
             $response->question_id = $questionId;

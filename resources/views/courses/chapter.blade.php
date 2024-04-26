@@ -25,6 +25,11 @@
         </div>
     </div>
     <div class='w3-main w3-light-grey' id='belowtopnav' style='margin-left:220px;'>
+        @if ($message = Session::get('success'))
+        <div class="alert alert-success" role="alert">
+            {{ $message }}
+        </div>
+    @endif
 
         <div class='w3-row w3-white'>
 

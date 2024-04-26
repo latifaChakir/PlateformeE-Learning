@@ -33,7 +33,7 @@ Route::get('/error', function () {
 });
 
 Route::get('/search', [AccueilController::class, 'search']);
-Route::get('/searchItem', [CertificatController::class, 'search']);
+
 Route::get('/searhexo', [QuestionController::class, 'search']);
 
 Route::get('/filter', [CertificatController::class, 'filter']);
@@ -43,9 +43,10 @@ Route::get('/coursesFree', [AccueilController::class, 'index']);
 
 Route::get('/', [AccueilController::class, 'index']);
 Route::get('/content/{idcours}/{chapterid}', [ChapterController::class, 'index'])->middleware('jwt.check');
-;
+
 Route::get('/courses/{id}', [HomeController::class, 'index']);
-Route::get('/startExo/{id}', [QuestionController::class, 'startExo'])->middleware('jwt.check');;
+
+Route::get('/startExo/{id}', [QuestionController::class, 'startExo'])->middleware('jwt.check');
 Route::get('/contentexo/{id}', [QuestionController::class, 'contentExo']);
 Route::get('/showanswer/{id}', [QuestionController::class, 'showAnswer']);
 
@@ -65,11 +66,23 @@ Route::post('/addquestionQuiz', [QuizzController::class, 'add']);
 Route::post('/storeResponse', [quizController::class, 'storeResponses'])->name('store_responses')->middleware('jwt.check');
 Route::get('/showResult/{courseId}', [quizController::class, 'showResults'])->name('showResult')->middleware('jwt.check');;
 
+$isLoggedIn = false;
+if (Cookie::has('jwt_token')) {
+    $isLoggedIn = true;
+}
+// dd($isLoggedIn);
+if ($isLoggedIn) {
+    Route::get('/searchItem', [CertificatController::class, 'search'])->middleware('jwt.check');
+    Route::get('/certificat', [CertificatController::class, 'index'])->middleware('jwt.check');
 
-Route::get('/certificat', [CertificatController::class, 'index']);
+} else {
+    Route::get('/searchItem', [CertificatController::class, 'search']);
+    Route::get('/certificat', [CertificatController::class, 'index']);
+}
+
 Route::get('/certificat/{id}', [CertificatController::class, 'getCertificat']);
 Route::get('/checkout/{id}', [CertificatController::class, 'checkout'])->middleware('jwt.check');
-Route::get('/success/{course}', [CertificatController::class, 'success'])->name('success');
+Route::get('/success/{course}/{userId}', [CertificatController::class, 'success'])->name('success');
 Route::get('/quiz/{id}', [quizController::class, 'showQuiz']);
 Route::get('/dashboard', [DashController::class, 'index'])->middleware('admin');;
 Route::get('/register', [AuthController::class, 'register'])->name('auth.register');

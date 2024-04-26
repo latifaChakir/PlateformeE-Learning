@@ -61,7 +61,7 @@
                     </div>
                     <div class="input-group input-group-outline my-3">
                         <label class="form-label"></label>
-                        <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email">
+                        <input type="text" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email">
                     </div>
                     <div class="input-group input-group-outline mb-3">
                         <label class="form-label"></label>
@@ -86,6 +86,51 @@
       </div>
     </section>
   </main>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector('.text-start');
+        form.addEventListener("submit", function (event) {
+            const nameInput = form.querySelector('input[name="name"]');
+            const emailInput = form.querySelector('input[name="email"]');
+            const passwordInput = form.querySelector('input[name="password"]');
+
+            // Valider le nom
+            if (!validateName(nameInput.value)) {
+                alert("Veuillez entrer un nom valide (lettres et espaces uniquement).");
+                event.preventDefault();
+                return;
+            }
+
+            if (!validateEmail(emailInput.value)) {
+                alert("Veuillez entrer une adresse email valide.");
+                event.preventDefault();
+                return;
+            }
+
+            if (!validatePassword(passwordInput.value)) {
+                alert("Le mot de passe doit contenir au moins un caractère spécial et ne doit pas contenir d'espaces.");
+                event.preventDefault();
+                return;
+            }
+
+        });
+
+        function validateName(name) {
+            const regex = /^[a-zA-Z\s]+$/;
+            return regex.test(name);
+        }
+
+        function validateEmail(email) {
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return regex.test(email);
+        }
+
+        function validatePassword(password) {
+            const regex = /^[\w@!#$%^&*()_+{}\[\]:;<>,.?~\\/-]+$/;
+            return regex.test(password);
+        }
+    });
+</script>
 
 </body>
 

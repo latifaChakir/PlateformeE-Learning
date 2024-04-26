@@ -119,7 +119,7 @@ class QuestionController extends Controller
             $progression->save();
         }
 
-        return redirect('/content/' . $request->course_id . '/' . $request->chapter_id);
+        return redirect('/content/' . $request->course_id . '/' . $request->chapter_id)->with('success', 'Response successfully');;
 
     }
 
