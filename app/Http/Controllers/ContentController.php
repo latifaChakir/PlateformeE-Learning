@@ -79,6 +79,7 @@ class ContentController extends Controller
         JOIN chapters ON content_courses.chapter_id = chapters.id
         JOIN courses ON chapters.course_id = courses.id
         WHERE content_courses.id='$id'")[0];
+        // dd($course);
         $courses = Course::all();
         return view('dashboard.Contenu.edit', compact('course','courses'));
 

@@ -154,6 +154,7 @@
                         aria-label="Logout from your account">
                         Log Out
                     </a>
+
                 @else
                     <a href="/login"
                         class="user-anonymous tnb-login-btn w3-btn bar-item-hover w3-right ws-light-green ga-top ga-top-login"
@@ -161,15 +162,16 @@
                         aria-label="Login to your account">
                         Log in
                     </a>
-                @endif
-
-
-                <a href="/register"
+                    <a href="/register"
                     class="user-anonymous tnb-login-btn w3-bar-item w3-btn  bar-item-hover w3-right ws-light-green ga-top ga-top-login"
                     style="background-color: #075985 !important; color: #FFF !important;"
                     title="Login to your account" aria-label="Login to your account">
                     Sign Up
                 </a>
+                @endif
+
+
+
 
                 <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fmy-learning.w3schools.com"
                     class="user-authenticated user-profile-btn w3-alt-btn w3-hide ga-top ga-top-profile"

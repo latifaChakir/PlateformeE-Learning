@@ -41,10 +41,7 @@
                         <input type="number" name="mark_wrong" class="form-control custom-select" placeholder="enter mark on wrong answer" value="{{ $quiz->mark_wrong }}"></input>
 
                     </div>
-                    <div class="form-group mt-3">
-                        <input type="number" name="limited_time" class="form-control custom-select" placeholder="enter date limit for test in minute" value="{{ $quiz->limited_time }}"></input>
-
-                    </div>
+                  
                     <div class="buttons justify-content-end">
                         <a href="/quizzes"><input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel"></a>
                         <input type="submit" class="btn btn-default" value="Save">

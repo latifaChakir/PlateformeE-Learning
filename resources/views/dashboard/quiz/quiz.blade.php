@@ -31,9 +31,7 @@
                                             Title</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Total Questions</th>
-                                        <th
-                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Time limit</th>
+                                        
                                         <th
                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                             Actions</th>
@@ -67,13 +65,7 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td>
-                                                <div class="d-flex px-2 py-1">
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <p class="text-sm text-secondary mb-0">{{ $quiz->limited_time }}</p>
-                                                    </div>
-                                                </div>
-                                            </td>
+
                                             <td class="align-middle">
                                                 <div class="buttons">
                                                     <a class="btn bg-grade-primary" href="{{route('quizzes.edit',$quiz->id)}}">Edit</a>

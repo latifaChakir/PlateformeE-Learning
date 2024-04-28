@@ -44,7 +44,7 @@ class QuizzController extends Controller
             'qst_numbers' => 'required|integer',
             'mark_right' => 'required|integer',
             'mark_wrong' => 'required|integer',
-            'limited_time' => 'required|integer',
+
         ]);
 
         $quiz = new Quiz();
@@ -53,7 +53,6 @@ class QuizzController extends Controller
         $quiz->qst_numbers = $validatedData['qst_numbers'];
         $quiz->mark_right = $validatedData['mark_right'];
         $quiz->mark_wrong = $validatedData['mark_wrong'];
-        $quiz->limited_time = $validatedData['limited_time'];
         $quiz->save();
 
         return redirect()->route('quizzes.questions.create', ['quiz' => $quiz->id]);
@@ -89,7 +88,6 @@ class QuizzController extends Controller
             'qst_numbers' => 'required|integer',
             'mark_right' => 'required|integer',
             'mark_wrong' => 'required|integer',
-            'limited_time' => 'required|integer',
         ]);
 
 
@@ -99,7 +97,6 @@ class QuizzController extends Controller
         $quiz->qst_numbers = $validatedData['qst_numbers'];
         $quiz->mark_right = $validatedData['mark_right'];
         $quiz->mark_wrong = $validatedData['mark_wrong'];
-        $quiz->limited_time = $validatedData['limited_time'];
         $quiz->save();
 
         return redirect()->route('quizzes.questions.create', ['quiz' => $quiz->id]);

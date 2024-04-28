@@ -33,17 +33,22 @@ class CheckCoursPayant
         }
         $user = User::find($decodedToken->id);
         $userId=$user->id;
-        $cours_id = $request->route('cours_id');
-        $course=Course::find($cours_id);
-        $coursPaye = CoursPaye::where('user_id', $userId)
-                                   ->where('cours_id', $cours_id)
-                                   ->where('is_payed', 1)
-                                   ->first();
+        $cours_id = $request->route('id');
+        $course = Course::find($cours_id);
 
-        if ($course->price!=0 && !$coursPaye) {
-            return redirect('/error')->with('error', 'Merci de payer le cours');
+        if (!$course) {
+            return redirect('/error')->with('error', 'Le cours demandé n\'existe pas');
         }
 
+        $coursPaye = CoursPaye::where('user_id', $userId)
+            ->where('cours_id', $cours_id)
+            ->where('is_payed', 1)
+            ->first();
+
+        if ($course->price != 0 && !$coursPaye) {
+            return redirect('/error')->with('error', 'Merci de payer le cours');
+        }
         return $next($request);
-    }
+}
+
 }

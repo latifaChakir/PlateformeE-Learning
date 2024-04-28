@@ -39,12 +39,14 @@ Route::get('/searhexo', [QuestionController::class, 'search']);
 Route::get('/filter', [CertificatController::class, 'filter']);
 Route::get('/coursesFree', [AccueilController::class, 'index']);
 
-
-
 Route::get('/', [AccueilController::class, 'index']);
-Route::get('/content/{idcours}/{chapterid}', [ChapterController::class, 'index'])->middleware('jwt.check');
 
-Route::get('/courses/{id}', [HomeController::class, 'index']);
+Route::middleware('jwt.check')->group(function () {
+    Route::get('/courses/{id}', [HomeController::class, 'index'])->middleware('checkCoursPayment');
+});
+
+
+Route::get('/content/{idcours}/{chapterid}', [ChapterController::class, 'index'])->middleware('jwt.check');
 
 Route::get('/startExo/{id}', [QuestionController::class, 'startExo'])->middleware('jwt.check');
 Route::get('/contentexo/{id}', [QuestionController::class, 'contentExo']);
@@ -57,7 +59,7 @@ Route::get('/showExercices', [QuestionController::class, 'showExercices']);
 Route::resource('exercice', ExerciceController::class)->middleware('admin');;
 Route::resource('course', CourseController::class)->middleware('admin');;
 Route::resource('users', UserController::class)->middleware('admin');;
-Route::resource('contentCourse', ContentController::class)->middleware('admin');;
+Route::resource('contentCourse', ContentController::class)->middleware('admin');
 Route::resource('categories', CategoryController::class)->middleware('admin');;
 Route::resource('quizzes', QuizzController::class)->middleware('admin');;
 Route::get('/quizzes/{quiz}', [QuizzController::class, 'cratequestions'])->name('quizzes.questions.create');

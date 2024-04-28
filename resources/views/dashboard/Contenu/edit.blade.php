@@ -10,7 +10,7 @@
       </div>
     </div>
     <div class="card-body px-0 pb-2">
-        <form method="post" id="forms" action="{{route('contentCourse.update',$course->id)}}">
+        <form method="post" id="forms" action="{{route('contentCourse.update',$course->chapter_id)}}">
             @csrf
             @method('PUT')
             <div class="modal-header">

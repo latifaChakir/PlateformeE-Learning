@@ -38,10 +38,7 @@
                         <input type="number" name="mark_wrong" class="form-control custom-select" placeholder="enter mark on wrong answer"></input>
 
                     </div>
-                    <div class="form-group mt-3">
-                        <input type="number" name="limited_time" class="form-control custom-select" placeholder="enter date limit for test in minute"></input>
-
-                    </div>
+                  
                     <div class="buttons justify-content-end">
                         <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
                         <input type="submit" class="btn btn-default" value="Save">
