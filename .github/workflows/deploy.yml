@@ -17,7 +17,7 @@ jobs:
         username: u820736800.portfolio-chakir.coders-strike.tech
         password: Latifa_2024@
         server-dir: /
-    - name: 🚀 Install PHP and Composer
+    - name: 🚀 Install PHP and Composer INSTALL
       uses: shivammathur/setup-php@v2
       with:
           php-version: '8.2'
